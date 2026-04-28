@@ -1,0 +1,16 @@
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(50,50)">
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#9e9e9e" transform="rotate(0)"/>
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#e53935" transform="rotate(45)"/>
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#43a047" transform="rotate(90)"/>
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#fb8c00" transform="rotate(135)"/>
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#fdd835" transform="rotate(180)"/>
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#1565c0" transform="rotate(225)"/>
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#00acc1" transform="rotate(270)"/>
+    <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#e91e8c" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="4" fill="#fb8c00"/>
+    <circle cx="0" cy="-7" r="2" fill="#fb8c00" opacity="0.6"/>
+    <circle cx="4.9" cy="-4.9" r="1.5" fill="#fb8c00" opacity="0.4"/>
+    <circle cx="-4.9" cy="-4.9" r="1.5" fill="#fb8c00" opacity="0.4"/>
+  </g>
+</svg>

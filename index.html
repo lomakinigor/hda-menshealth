@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Закрытый ВИП-интенсив «Мужское здоровье: Сила, Энергия, Возрождение» со Светловым Владимиром Юрьевичем. 22–31 мая 2026. Эко-поселение Карлинская слобода.">
+  <title>Мужское здоровье: Сила, Энергия, Возрождение</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* === RESET & BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg:        #0d0d0d;
+      --color-surface:   #141414;
+      --color-surface-2: #1c1c1c;
+      --color-border:    rgba(255,255,255,0.08);
+      --color-gold:       #c9a84c;
+      --color-gold-light: #e8c96e;
+      --color-gold-dark:  #a07828;
+      --color-gold-glow:  rgba(201,168,76,0.12);
+      --color-text:       #f0ede6;
+      --color-text-muted: #9a9488;
+      --color-text-faint: #5a5650;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Raleway', 'Helvetica Neue', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    /* === TYPOGRAPHY === */
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 2.5rem;
+    }
+
+    .gold { color: var(--color-gold); }
+
+    .gold-line {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--color-gold);
+      margin-bottom: 1.25rem;
+    }
+
+    blockquote.pull-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      color: var(--color-gold);
+      border-left: 3px solid var(--color-gold);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--color-gold-glow);
+    }
+
+    blockquote.pull-quote footer {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--color-text-muted);
+    }
+
+    /* === LAYOUT === */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 5rem 0; }
+
+    /* === BUTTONS === */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      border: none;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+
+    .btn-gold {
+      background: var(--color-gold);
+      color: #0d0d0d;
+    }
+    .btn-gold:hover {
+      background: var(--color-gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-gold);
+      border: 1px solid var(--color-gold);
+    }
+    .btn-outline:hover {
+      background: var(--color-gold-glow);
+    }
+
+    /* === HEADER === */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 0;
+      transition: background 0.35s, backdrop-filter 0.35s, border-color 0.35s;
+      border-bottom: 1px solid transparent;
+    }
+    .header.scrolled {
+      background: rgba(13,13,13,0.92);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border-color: var(--color-border);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .header__logo-text {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+      max-width: 130px;
+    }
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .header__nav a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .header__nav a:hover { color: var(--color-gold); }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--color-text);
+    }
+
+    @media (max-width: 900px) {
+      .header__nav { display: none; }
+      .header__cta .btn { display: none; }
+      .burger { display: flex; }
+
+      .header__nav.nav--open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(13,13,13,0.97);
+        padding: 1.5rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+      .header__cta.cta--open .btn { display: inline-block; }
+    }
+
+    /* === HERO === */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+      background:
+        linear-gradient(to bottom, rgba(13,13,13,0.25) 0%, rgba(13,13,13,0.88) 100%),
+        linear-gradient(135deg, #0d0d0d 0%, #1a1408 50%, #0d0d0d 100%);
+    }
+
+    .hero__ornament {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(600px, 90vw);
+      height: min(600px, 90vw);
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero__title {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--color-text-muted);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.9;
+    }
+
+    .hero__details {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero__detail-item {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero__seats {
+      display: inline-block;
+      background: var(--color-gold-glow);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 0.5rem 1.5rem;
+      margin-bottom: 2.25rem;
+      font-size: 13px;
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+    }
+
+    /* === TARGET AUDIENCE === */
+    #target { background: var(--color-surface); }
+
+    .checklist {
+      list-style: none;
+      display: grid;
+      gap: 1.1rem;
+      max-width: 680px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      color: var(--color-text-muted);
+    }
+    .checklist__icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      margin-top: 3px;
+    }
+    .checklist__icon svg { width: 100%; height: 100%; }
+
+    .closing-text {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--color-gold);
+      background: var(--color-gold-glow);
+      font-style: italic;
+      color: var(--color-text-muted);
+      max-width: 680px;
+      line-height: 1.85;
+    }
+
+    /* === STORY === */
+    #story { background: var(--color-bg); }
+
+    .story__grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .story__text-block {
+      border-left: 3px solid var(--color-gold);
+      padding-left: 2rem;
+    }
+
+    .story__text {
+      color: var(--color-text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 800px) {
+      .story__grid { grid-template-columns: 1fr; }
+      .story__text-block { border-left: none; padding-left: 0; border-top: 3px solid var(--color-gold); padding-top: 2rem; }
+    }
+
+    /* === PARABLE === */
+    #parable { background: var(--color-surface-2); }
+
+    .parable__content {
+      max-width: 780px;
+    }
+
+    .parable__ornament {
+      margin-bottom: 2rem;
+    }
+
+    .parable__text {
+      color: var(--color-text-muted);
+      line-height: 1.9;
+    }
+    .parable__text p { margin-bottom: 1.25rem; }
+
+    .parable__link {
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
+      background: var(--color-gold-glow);
+      border: 1px solid rgba(201,168,76,0.18);
+      font-style: italic;
+      color: var(--color-text-muted);
+      line-height: 1.85;
+    }
+
+    /* === LEADER === */
+    #leader { background: var(--color-bg); }
+
+    .leader__grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .credentials {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .credentials li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+    .credentials li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      min-width: 5px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 800px) {
+      .leader__grid { grid-template-columns: 1fr; }
+    }
+
+    /* === PROGRAM === */
+    #program { background: var(--color-surface); }
+
+    .program__grid { display: grid; gap: 0; }
+
+    .program__day {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 1.5rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--color-border);
+      align-items: center;
+    }
+    .program__day:last-child { border-bottom: none; }
+
+    .program__day-num {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      line-height: 1;
+    }
+    .program__day-num span {
+      display: block;
+      font-size: 0.65rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-faint);
+      margin-top: 4px;
+    }
+    .program__day-title {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+    }
+
+    .program__note {
+      margin-top: 2rem;
+      padding: 1rem 1.5rem;
+      background: var(--color-gold-glow);
+      border-left: 3px solid var(--color-gold);
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* === RESULTS === */
+    #results { background: var(--color-bg); }
+
+    .results__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .results__card {
+      background: var(--color-surface);
+      padding: 2rem;
+      border-top: 2px solid var(--color-gold);
+    }
+
+    .results__card-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .results__list {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .results__list li {
+      color: var(--color-text-muted);
+      padding-left: 1.25rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+    .results__list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+    }
+
+    @media (max-width: 860px) {
+      .results__grid { grid-template-columns: 1fr; }
+    }
+
+    /* === EXAMPLE (Andrey) === */
+    #example {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1408 60%, #0d0d0d 100%);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .example__grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .example__text {
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .example__cta { margin-top: 2rem; }
+
+    @media (max-width: 800px) {
+      .example__grid { grid-template-columns: 1fr; }
+    }
+
+    /* === LOCATION === */
+    #location { background: var(--color-surface); }
+
+    .location__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .location__name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 1.25rem;
+    }
+    .location__text { color: var(--color-text-muted); line-height: 1.85; }
+
+    .location__date {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--color-gold-glow);
+      border: 1px solid rgba(201,168,76,0.25);
+      font-size: 0.9rem;
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 800px) {
+      .location__grid { grid-template-columns: 1fr; }
+    }
+
+    /* === PRICING === */
+    #pricing { background: var(--color-bg); }
+
+    .pricing__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .pricing__card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .pricing__card--featured { border-color: var(--color-gold); }
+
+    .pricing__card--featured::before {
+      content: 'Рекомендуем';
+      position: absolute;
+      top: -1px; right: 2rem;
+      background: var(--color-gold);
+      color: #0d0d0d;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+    }
+
+    .pricing__tier {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing__title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .pricing__price {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--color-gold);
+      margin-bottom: 2rem;
+      line-height: 1;
+    }
+    .pricing__price span {
+      font-size: 1.1rem;
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+    }
+
+    .pricing__features {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .pricing__features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+    .pricing__features li .check { color: var(--color-gold); font-weight: 700; min-width: 14px; }
+
+    .pricing__note {
+      font-size: 0.8rem;
+      color: var(--color-text-faint);
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    .pricing__footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+
+    @media (max-width: 680px) {
+      .pricing__grid { grid-template-columns: 1fr; }
+    }
+
+    /* === FAQ === */
+    #faq { background: var(--color-surface-2); }
+
+    .faq__list { max-width: 800px; }
+
+    .faq__item { border-bottom: 1px solid var(--color-border); }
+
+    .faq__question {
+      width: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 0;
+      cursor: pointer;
+      text-align: left;
+      gap: 1rem;
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .faq__question:hover { color: var(--color-gold); }
+
+    .faq__icon {
+      width: 26px; height: 26px;
+      min-width: 26px;
+      border: 1px solid var(--color-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      font-size: 18px;
+      font-weight: 300;
+      transition: transform 0.3s;
+    }
+
+    .faq__item.open .faq__icon { transform: rotate(45deg); }
+
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq__answer-inner {
+      padding-bottom: 1.5rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .faq__item.open .faq__answer { max-height: 400px; }
+
+    /* === FINAL CTA === */
+    #cta {
+      background: linear-gradient(to bottom, #0d0d0d, #1a1408, #0d0d0d);
+      text-align: center;
+    }
+
+    .cta__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .cta__text {
+      color: var(--color-text-muted);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.9;
+    }
+
+    .cta__sub {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--color-text-faint);
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: #000;
+      border-top: 1px solid var(--color-border);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer__logo-text {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-text-muted);
+    }
+
+    .footer__site {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer__site:hover { color: var(--color-gold-light); }
+
+    .footer__disclaimer {
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--color-text-faint);
+      max-width: 380px;
+    }
+
+    .footer__copy {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.8rem;
+      color: var(--color-text-faint);
+    }
+
+    /* === PHOTO PLACEHOLDERS === */
+    .photo-placeholder {
+      background: linear-gradient(135deg, #1c1c1c 0%, #2a2218 100%);
+      border: 1px dashed rgba(201,168,76,0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(201,168,76,0.55);
+      font-size: 13px;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .photo-placeholder--portrait {
+      width: 320px;
+      height: 400px;
+      max-width: 100%;
+    }
+
+    .photo-placeholder--portrait-sm {
+      width: 280px;
+      height: 350px;
+      max-width: 100%;
+    }
+
+    .photo-placeholder--landscape {
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-height: 420px;
+    }
+
+    .photo-placeholder svg { opacity: 0.5; }
+
+    .photo-placeholder__hint {
+      display: block;
+      font-size: 11px;
+      opacity: 0.45;
+      font-family: monospace;
+      margin-top: 4px;
+    }
+
+    /* === UTILITY CLASSES === */
+    .text-gold { color: var(--color-gold); }
+    .text-normal { color: var(--color-text); }
+    .text-note { font-size: 0.9rem; color: var(--color-text-faint); font-style: italic; }
+
+    .section-eyebrow {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--color-gold);
+      margin-bottom: 2.5rem;
+    }
+
+    .story__text--highlight { color: var(--color-gold); font-weight: 500; }
+
+    .leader__name {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .leader__role {
+      color: var(--color-gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .program__subtitle {
+      color: var(--color-text-muted);
+      margin-bottom: 3rem;
+      margin-top: -1.5rem;
+    }
+
+    .btn--block { width: 100%; text-align: center; display: block; }
+
+    .container--center { text-align: center; }
+    .gold-line--center { margin: 0 auto 1.25rem; }
+
+    .footer__contact { text-align: right; }
+    .footer__contact-label { color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .footer__contact-value { color: var(--color-gold); }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="site-header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(50,50)">
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#9e9e9e" transform="rotate(0)"/>
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#e53935" transform="rotate(45)"/>
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#43a047" transform="rotate(90)"/>
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#fb8c00" transform="rotate(135)"/>
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#fdd835" transform="rotate(180)"/>
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#1565c0" transform="rotate(225)"/>
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#00acc1" transform="rotate(270)"/>
+            <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#e91e8c" transform="rotate(315)"/>
+            <circle cx="0" cy="0" r="4" fill="#fb8c00"/>
+          </g>
+        </svg>
+        <span class="header__logo-text">Академия Развития Человека</span>
+      </a>
+
+      <nav>
+        <ul class="header__nav">
+          <li><a href="#program">Программа</a></li>
+          <li><a href="#leader">Ведущий</a></li>
+          <li><a href="#story">История Андрея</a></li>
+          <li><a href="#pricing">Стоимость</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__cta">
+        <a href="#pricing" class="btn btn-gold">Записаться</a>
+      </div>
+
+      <button type="button" class="burger" id="burger" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<!-- ===== BLOCK 1: HERO ===== -->
+<section class="hero" id="hero">
+  <svg class="hero__ornament" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="300" cy="300" rx="280" ry="280" stroke="#c9a84c" stroke-width="1"/>
+    <ellipse cx="300" cy="300" rx="220" ry="220" stroke="#c9a84c" stroke-width="0.5"/>
+    <line x1="300" y1="20" x2="300" y2="580" stroke="#c9a84c" stroke-width="0.5"/>
+    <line x1="20" y1="300" x2="580" y2="300" stroke="#c9a84c" stroke-width="0.5"/>
+    <line x1="102" y1="102" x2="498" y2="498" stroke="#c9a84c" stroke-width="0.5"/>
+    <line x1="498" y1="102" x2="102" y2="498" stroke="#c9a84c" stroke-width="0.5"/>
+    <!-- Eagle silhouette -->
+    <path d="M300,180 C300,180 240,210 200,250 C180,270 175,300 190,318 C205,336 230,330 250,315 C230,335 225,365 245,380 C265,395 290,385 300,368 C310,385 335,395 355,380 C375,365 370,335 350,315 C370,330 395,336 410,318 C425,300 420,270 400,250 C360,210 300,180 300,180Z" fill="#c9a84c"/>
+    <path d="M300,265 C275,245 225,235 185,248 C168,254 165,272 180,280 C195,288 225,278 245,285 Z" fill="#c9a84c" opacity="0.6"/>
+    <path d="M300,265 C325,245 375,235 415,248 C432,254 435,272 420,280 C405,288 375,278 355,285 Z" fill="#c9a84c" opacity="0.6"/>
+  </svg>
+
+  <div class="hero__content">
+    <p class="hero__eyebrow">Закрытый ВИП-интенсив · Академия Развития Человека</p>
+
+    <h1 class="hero__title">
+      Мужское<br>
+      <span class="gold">здоровье:</span><br>
+      Сила. Энергия.<br>Возрождение.
+    </h1>
+
+    <p class="hero__subtitle">
+      Закрытый ВИП-интенсив для мужчин 40+,<br>
+      которые хотят вернуть тело, энергию и смысл —<br>
+      до того, как это сделает болезнь.
+    </p>
+
+    <div class="hero__details">
+      <div class="hero__detail-item">
+        <span>📍</span>
+        <span>Эко-поселение Карлинская слобода</span>
+      </div>
+      <div class="hero__detail-item">
+        <span>📅</span>
+        <span>22–31 мая 2026 · 10 дней</span>
+      </div>
+      <div class="hero__detail-item">
+        <span>🔥</span>
+        <span>До 20 участников</span>
+      </div>
+    </div>
+
+    <div class="hero__seats">
+      Осталось мест: <strong id="seats-counter">20</strong> из 20
+    </div>
+
+    <br>
+    <a href="#pricing" class="btn btn-gold">Забронировать место</a>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 2: TARGET AUDIENCE ===== -->
+<section id="target">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Это про вас?</h2>
+
+    <ul class="checklist">
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Энергии хватает на работу — но не на себя и семью</span>
+      </li>
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Хроническая усталость стала нормой</span>
+      </li>
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Что-то болит постоянно, но «некогда разбираться»</span>
+      </li>
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Чувствуете, что тело даёт сбои, но анализы «в норме»</span>
+      </li>
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Либидо и мужская сила уже не те, что в 35</span>
+      </li>
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Внутри ощущение: «Лучшее уже позади»</span>
+      </li>
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Нет ощущения радости и азарта от жизни</span>
+      </li>
+      <li>
+        <div class="checklist__icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Боитесь, что однажды тело скажет «стоп» в самый неподходящий момент</span>
+      </li>
+    </ul>
+
+    <div class="closing-text">
+      Если хоть 3 пункта про вас — этот интенсив создан именно для вас.<br>
+      Успешные мужчины чаще всего пропускают момент, когда тело начинает сдаваться.<br>
+      <strong class="text-normal">Не ждите диагноза.</strong>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 3: STORY OF ANDREY ===== -->
+<section id="story">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Реальная история</h2>
+    <p class="section-eyebrow">Предприниматель. 52 года. Нефтегазальянск.</p>
+
+    <div class="story__grid">
+      <div>
+        <div class="photo-placeholder photo-placeholder--portrait" data-photo="vertniakov.jpg">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#c9a84c" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Фото Андрея Вертнякова</span>
+          <span class="photo-placeholder__hint">assets/photos/vertniakov.jpg</span>
+        </div>
+      </div>
+
+      <div class="story__text-block">
+        <p class="story__text">Друзья, вам наверное интересно, как было выбрано название моего канала.</p>
+
+        <p class="story__text">Ровно 5 лет назад моя жизнь кардинально изменилась и мне пришлось лицом к лицу встретиться с «осознанной жизнью». В канун Нового года мне поставили диагноз «онкология» с незамедлительной рекомендацией на химиотерапию. Как сказал мой врач В.В. Купцман: «Отправим тебя на химию, она особо не поможет, а через 6–9 месяцев — на операцию. Жить сможешь, но с трубкой. Лет 5 так прожить можно, но не так».</p>
+
+        <p class="story__text">Вот вам и подарок на Новый год.</p>
+
+        <p class="story__text">На первой же химиотерапии я понял, что меня медленно и верно убивают. Видели бы вы людей в онкологической больнице — сплошные «живые мертвецы», всё пространство пропитано духом безысходности. Так работает система.</p>
+
+        <p class="story__text">В это же время ко мне пришло предложение познакомиться с удивительным человеком — Заслуженным Целителем России, за плечами которого тысячи выздоровевших людей. Для встречи с ним нужно было поехать в тайгу — он организовывал там настоящие мужские сборы на лыжах, с ночёвкой в снежных берлогах, рыбалкой при -35.</p>
+
+        <p class="story__text">Даты сборов совпали со второй химиотерапией. Я пустился в авантюру — и сбежал от врачей. Давно мечтал испытать тайгу, да и терять было особо нечего.</p>
+
+        <p class="story__text">Та встреча изменила мою жизнь. Её можно ждать всю жизнь и так и не дойти. Мне повезло.</p>
+
+        <p class="story__text">Теперь тот Целитель стал моим Учителем — Владимир Юрьевич Светлов. За три года я не только выздоровел, но и сам стал Мастером Академии Развития Человека, наставником людей, которые сталкиваются с вопросами здоровья, взаимоотношений и смысла жизни.</p>
+
+        <p class="story__text">Сейчас я по-прежнему занимаюсь бизнесом, веду общественную работу — и при этом в мою жизнь пришли утренние пробежки, энергетические гимнастики, осознанные молитвы, путешествия в поисках новых знаний.</p>
+
+        <p class="story__text story__text--highlight">Болезнь пришла в 47. Мне сейчас 52. И это лучший период моей жизни.</p>
+
+        <blockquote class="pull-quote">
+          «Я благодарю Бога за болезнь — именно она стала отправной точкой знакомства с Учителем Владимиром Юрьевичем Светловым и моим путём осознанной жизни, наполненной радостных открытий и новых смыслов.»
+          <footer>— Андрей Вертняков, Мастер Академии Развития Человека</footer>
+        </blockquote>
+
+        <p class="text-note">Андрей будет присутствовать на семинаре лично.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 4: EAGLE PARABLE ===== -->
+<section id="parable">
+  <div class="container">
+    <div class="parable__content">
+      <div class="parable__ornament">
+        <svg width="72" height="72" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M50,18 C50,18 28,33 18,50 C12,60 14,76 24,82 C34,88 45,80 50,68 C55,80 66,88 76,82 C86,76 88,60 82,50 C72,33 50,18 50,18Z" fill="#c9a84c"/>
+          <path d="M50,44 C36,34 14,28 4,38 C-1,44 2,57 16,58 C28,59 42,48 48,55Z" fill="#c9a84c" opacity="0.65"/>
+          <path d="M50,44 C64,34 86,28 96,38 C101,44 98,57 84,58 C72,59 58,48 52,55Z" fill="#c9a84c" opacity="0.65"/>
+          <ellipse cx="43" cy="33" rx="2" ry="2.5" fill="#1a1408"/>
+          <ellipse cx="57" cy="33" rx="2" ry="2.5" fill="#1a1408"/>
+          <path d="M47,42 L50,46 L53,42" fill="#c9a84c"/>
+        </svg>
+      </div>
+
+      <span class="gold-line"></span>
+      <h2 class="section-title">Притча об Орле</h2>
+      <p class="section-eyebrow">Почему обновление требует смелости</p>
+
+      <div class="parable__text">
+        <p>Орёл живёт до 70 лет. Но в 40 лет он оказывается перед выбором.</p>
+        <p>К этому времени его когти теряют гибкость — он уже не может крепко схватить добычу. Клюв становится длинным и изогнутым, мешает есть. Перья тяжелеют и прилипают к груди, делая полёт мучительным.</p>
+        <p>У орла два пути: умереть — или пройти мучительное обновление.</p>
+        <p>Если он выбирает жизнь — он улетает в горы, в одиночество. Там он бьёт клювом о камень, пока не сломает его. Ждёт, пока вырастет новый. Потом вырывает когти — один за другим. Ждёт новых. Потом вырывает старые тяжёлые перья.</p>
+        <p>Это занимает 150 дней. Боль невыносима.</p>
+        <p>Но потом — орёл взлетает заново. С новым клювом. Новыми когтями. Новыми перьями. И живёт ещё 30 лет — в силе, в скорости, в величии.</p>
+        <p><strong class="text-normal">Не каждый готов сломать старый клюв.<br>Но именно это и отличает орла от птицы, которая просто доживает.</strong></p>
+      </div>
+
+      <div class="parable__link">
+        Владимир Светлов помогает мужчинам пройти этот путь.<br>
+        <span class="text-gold">Не через боль потери — а через силу осознанного выбора.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 5: LEADER ===== -->
+<section id="leader">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Ведущий интенсива</h2>
+
+    <div class="leader__grid">
+      <div>
+        <div class="photo-placeholder photo-placeholder--portrait" data-photo="svetlov.jpg">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#c9a84c" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Фото Светлова В.Ю.</span>
+          <span class="photo-placeholder__hint">assets/photos/svetlov.jpg</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="leader__name">Светлов Владимир Юрьевич</h3>
+        <p class="leader__role">Президент Академии Развития Человека</p>
+
+        <ul class="credentials">
+          <li>Президент Академии Развития Человека</li>
+          <li>Магистр народной медицины</li>
+          <li>Заслуженный Целитель России I степени</li>
+          <li>Профессиональный психолог-практик</li>
+          <li>Орден «Звезда Надежды»</li>
+          <li>«Путь науки и практики I степени»</li>
+          <li>Орден «Звезда Магистра»</li>
+          <li>Более 25 лет практики — Индия, Тибет, Перу, Китай</li>
+          <li>Тысячи выздоровевших учеников по всему миру</li>
+        </ul>
+
+        <blockquote class="pull-quote">
+          «Мужская сила — это не таблетки и не операции.
+          Это законы природы, которые мы когда-то забыли.
+          Я помогаю мужчинам вспомнить их заново.»
+          <footer>— Владимир Светлов</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 6: PROGRAM ===== -->
+<section id="program">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Программа интенсива</h2>
+    <p class="program__subtitle">10 дней трансформации · 22–31 мая 2026</p>
+
+    <div class="program__grid">
+      <div class="program__day">
+        <div class="program__day-num">01<span>день</span></div>
+        <div class="program__day-title">Диагностика состояния. Понимание своего тела и энергетики</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">02<span>день</span></div>
+        <div class="program__day-title">Мужские ресурсы: откуда берётся и куда уходит сила</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">03<span>день</span></div>
+        <div class="program__day-title">Работа с болью и хроническими состояниями (натуропатия, целительские практики)</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">04<span>день</span></div>
+        <div class="program__day-title">Психосоматика: как психика управляет телом</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">05<span>день</span></div>
+        <div class="program__day-title">Мужское либидо и гормональный баланс: природные методы восстановления</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">06<span>день</span></div>
+        <div class="program__day-title">Энергетические практики. Утренние и вечерние ритуалы силы</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">07<span>день</span></div>
+        <div class="program__day-title">Мужское предназначение и смысл. Работа с подсознанием</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">08<span>день</span></div>
+        <div class="program__day-title">Отношения, семья, роль отца и мужа через призму здоровья</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">09<span>день</span></div>
+        <div class="program__day-title">Интеграция. Личный план на год. Прощальный ритуал</div>
+      </div>
+      <div class="program__day">
+        <div class="program__day-num">10<span>день</span></div>
+        <div class="program__day-title">Отъезд. Индивидуальные консультации</div>
+      </div>
+    </div>
+
+    <div class="program__note">
+      Каждый день включает утренние практики на природе, групповую работу и индивидуальные сессии со Светловым.
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 7: RESULTS ===== -->
+<section id="results">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Результаты трансформации</h2>
+
+    <div class="results__grid">
+      <div class="results__card">
+        <div class="results__card-title">Тело</div>
+        <ul class="results__list">
+          <li>Понимание причин хронических болей и состояний</li>
+          <li>Природные методы восстановления без химии</li>
+          <li>Персональный протокол здоровья от Светлова</li>
+          <li>Практики, которые встраиваются в жизнь навсегда</li>
+        </ul>
+      </div>
+
+      <div class="results__card">
+        <div class="results__card-title">Психика</div>
+        <ul class="results__list">
+          <li>Освобождение от накопленных страхов и блоков</li>
+          <li>Ясность в голове и снижение тревожности</li>
+          <li>Новое отношение к собственному телу</li>
+          <li>Работа с глубинными причинами болезней</li>
+        </ul>
+      </div>
+
+      <div class="results__card">
+        <div class="results__card-title">Энергия и смысл</div>
+        <ul class="results__list">
+          <li>Возвращение мужской силы и либидо</li>
+          <li>Ощущение полноты и радости жизни</li>
+          <li>Понимание своего предназначения</li>
+          <li>Связь с природой и источником силы</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 8: LIVE EXAMPLE ===== -->
+<section id="example">
+  <div class="container">
+    <div class="example__grid">
+      <div>
+        <div class="photo-placeholder photo-placeholder--portrait-sm" data-photo="vertniakov.jpg">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#c9a84c" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Андрей Вертняков</span>
+          <span class="photo-placeholder__hint">assets/photos/vertniakov.jpg</span>
+        </div>
+      </div>
+
+      <div>
+        <span class="gold-line"></span>
+        <h2 class="section-title">Живой пример рядом с вами</h2>
+
+        <p class="example__text">
+          На этом интенсиве вы встретите Андрея Вертнякова лично.<br><br>
+          Не в видео. Не в тексте. Живой человек, который прошёл путь от онкологии и химиотерапии — к здоровью, силе и новому смыслу жизни.<br><br>
+          Вы сможете задать ему любой вопрос. Услышать его историю из первых уст. И убедиться сами — что работает.
+        </p>
+
+        <blockquote class="pull-quote">
+          «Если бы 5 лет назад мне кто-то сказал, что я буду благодарить за онкологию — я бы не поверил.
+          Сегодня это моя правда.»
+          <footer>— Андрей Вертняков, Мастер Академии</footer>
+        </blockquote>
+
+        <div class="example__cta">
+          <a href="#pricing" class="btn btn-gold">Встретиться с Андреем на семинаре</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 9: LOCATION ===== -->
+<section id="location">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Место проведения</h2>
+
+    <div class="location__grid">
+      <div>
+        <div class="location__name">Эко-поселение Карлинская слобода</div>
+        <p class="location__text">
+          Интенсив проходит вдали от городского шума — в экологически чистом поселении, на лоне живой природы Урала.<br><br>
+          Чистый воздух, вода, лес, тишина. Условия, в которых тело начинает восстанавливаться само — ещё до начала практик.<br><br>
+          Проживание и питание организуется отдельно от стоимости курса.
+        </p>
+        <div class="location__date">📅 &nbsp;22–31 мая 2026</div>
+      </div>
+
+      <div>
+        <div class="photo-placeholder photo-placeholder--landscape" data-photo="location.jpg">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><path d="M3 20l5-8 4 6 3-4 5 6H3Z" stroke="#c9a84c" stroke-width="1.5" stroke-linejoin="round"/><circle cx="17" cy="7" r="2" stroke="#c9a84c" stroke-width="1.5"/></svg>
+          <span>Карлинская слобода</span>
+          <span class="photo-placeholder__hint">assets/photos/location.jpg</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 10: PRICING ===== -->
+<section id="pricing">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Инвестиция в себя</h2>
+
+    <div class="pricing__grid">
+      <div class="pricing__card pricing__card--featured">
+        <div class="pricing__tier">VIP MAX</div>
+        <div class="pricing__title">Максимальное погружение</div>
+        <div class="pricing__price">200 000 <span>₽</span></div>
+        <ul class="pricing__features">
+          <li><span class="check">✓</span>10 дней интенсива со Светловым</li>
+          <li><span class="check">✓</span>Личные сессии каждый день</li>
+          <li><span class="check">✓</span>Индивидуальный протокол здоровья</li>
+          <li><span class="check">✓</span>Доступ к материалам Академии на 1 год</li>
+          <li><span class="check">✓</span>Место в закрытом чате выпускников</li>
+          <li><span class="check">✓</span>Сопровождение после семинара (3 мес.)</li>
+        </ul>
+        <p class="pricing__note">* Проживание оплачивается отдельно</p>
+        <a href="#cta" class="btn btn-gold" class="btn--block">Забронировать место</a>
+      </div>
+
+      <div class="pricing__card">
+        <div class="pricing__tier">VIP СТАНДАРТ</div>
+        <div class="pricing__title">Групповая трансформация</div>
+        <div class="pricing__price">100 000 <span>₽</span></div>
+        <ul class="pricing__features">
+          <li><span class="check">✓</span>10 дней интенсива со Светловым</li>
+          <li><span class="check">✓</span>Групповые практики и сессии</li>
+          <li><span class="check">✓</span>Базовый протокол здоровья</li>
+          <li><span class="check">✓</span>Место в закрытом чате выпускников</li>
+        </ul>
+        <p class="pricing__note">* Проживание оплачивается отдельно</p>
+        <a href="#cta" class="btn btn-outline" class="btn--block">Забронировать место</a>
+      </div>
+    </div>
+
+    <div class="pricing__footer">
+      Семинар рассчитан на 20 человек. После заполнения мест запись закрывается.<br>
+      <span class="text-gold">Возможна рассрочка — условия обсуждаются индивидуально.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 11: FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <span class="gold-line"></span>
+    <h2 class="section-title">Часто задаваемые вопросы</h2>
+
+    <div class="faq__list">
+      <div class="faq__item">
+        <button type="button" class="faq__question">
+          Нужна ли специальная физическая подготовка?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Нет. Интенсив рассчитан на мужчин в любом физическом состоянии. Практики адаптируются индивидуально.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button type="button" class="faq__question">
+          Что включено в стоимость тарифа?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Участие в программе интенсива и работа со Светловым. Проживание и питание оплачиваются отдельно — мы помогаем организовать заселение в эко-поселение.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button type="button" class="faq__question">
+          Я не верю в «целительство» — это для меня?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Владимир Светлов работает на пересечении народной медицины, психосоматики и природных практик. Это не религия и не эзотерика в привычном смысле — это работа с реальными законами природы и психики.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button type="button" class="faq__question">
+          Правда ли, что на семинаре будет Андрей Вертняков?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Да. Андрей Вертняков — Мастер Академии и один из участников интенсива. Он будет присутствовать лично и готов делиться своим опытом выздоровления.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button type="button" class="faq__question">
+          Как забронировать место?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Нажмите кнопку «Забронировать место» или напишите нам напрямую. Место закрепляется после внесения предоплаты.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button type="button" class="faq__question">
+          Можно ли оплатить частями?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Да, возможна рассрочка. Условия обсуждаются индивидуально.</div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button type="button" class="faq__question">
+          Подходит ли это мужчинам старше 60?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">Да. Программа разработана для мужчин 40–70 лет. Практики адаптируются под возраст и состояние здоровья каждого участника.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOCK 12: FINAL CTA ===== -->
+<section id="cta">
+  <div class="container container--center">
+    <span class="gold-line gold-line--center"></span>
+    <h2 class="cta__title">
+      Лучшее время было вчера.<br>
+      <span class="gold">Второе лучшее время — сейчас.</span>
+    </h2>
+
+    <p class="cta__text">
+      Осталось <strong id="seats-counter-2">20</strong> мест из 20.<br>
+      Семинар начинается 22 мая 2026.<br><br>
+      Не ждите, пока тело само решит этот вопрос за вас.
+    </p>
+
+    <a href="#pricing" class="btn btn-gold">Забронировать место сейчас</a>
+
+    <p class="cta__sub">
+      Или напишите нам: <span class="text-gold">[контакт организатора]</span>
+    </p>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">
+          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(50,50)">
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#9e9e9e" transform="rotate(0)"/>
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#e53935" transform="rotate(45)"/>
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#43a047" transform="rotate(90)"/>
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#fb8c00" transform="rotate(135)"/>
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#fdd835" transform="rotate(180)"/>
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#1565c0" transform="rotate(225)"/>
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#00acc1" transform="rotate(270)"/>
+              <path d="M0,0 C-6,-13 -6,-28 0,-38 C6,-28 6,-13 0,0" fill="#e91e8c" transform="rotate(315)"/>
+              <circle cx="0" cy="0" r="4" fill="#fb8c00"/>
+            </g>
+          </svg>
+          <span class="footer__logo-text">Академия Развития Человека</span>
+        </div>
+        <a href="https://svetlov.academy" class="footer__site" target="_blank" rel="noopener noreferrer">svetlov.academy</a>
+        <p class="footer__disclaimer">Материалы носят информационный характер и не являются медицинской рекомендацией.</p>
+      </div>
+
+      <div class="footer__contact">
+        <p class="footer__contact-label">Контакт организатора:</p>
+        <p class="footer__contact-value">[контакт организатора]</p>
+      </div>
+    </div>
+
+    <div class="footer__copy">
+      © 2026 Академия Развития Человека. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  const SEATS_LEFT = 20;
+
+  document.querySelectorAll('#seats-counter, #seats-counter-2').forEach(function(el) {
+    el.textContent = SEATS_LEFT;
+  });
+
+  // Sticky header
+  var header = document.getElementById('site-header');
+  window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Burger menu
+  var burger = document.getElementById('burger');
+  var nav = document.querySelector('.header__nav');
+  var headerCta = document.querySelector('.header__cta');
+  burger.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('nav--open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    headerCta.classList.toggle('cta--open', isOpen);
+  });
+  // Close nav on link click
+  document.querySelectorAll('.header__nav a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.remove('nav--open');
+      headerCta.classList.remove('cta--open');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq__question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq__item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq__item.open').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
