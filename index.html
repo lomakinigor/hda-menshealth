@@ -266,8 +266,12 @@
     .story__badge { padding: 1.1rem 1.4rem; background: var(--mint); border-radius: var(--r-md); margin-top: 1rem; }
     .story__badge-name { font-family: var(--fd); font-size: 1.15rem; font-weight: 400; }
     .story__badge-role { font-size: .82rem; color: var(--muted); margin-top: .25rem; font-weight: 500; }
-    .story__note { display: flex; align-items: flex-start; gap: .65rem; padding: 1rem 1.25rem; background: var(--peach); border-radius: var(--r-md); margin-top: 1rem; font-size: .88rem; color: var(--coral-dim); line-height: 1.5; font-weight: 500; }
-    .story__note-ico { color: var(--coral-dim); flex-shrink: 0; margin-top: 1px; }
+    .story__note { display: flex; align-items: flex-start; gap: .65rem; padding: 1rem 1.25rem; background: var(--peach); border-radius: var(--r-md); margin-top: 1rem; font-size: .88rem; color: var(--coral-dim); line-height: 1.5; font-weight: 500; width: 100%; text-align: left; border: none; font-family: inherit; cursor: pointer; transition: all var(--tb); }
+    button.story__note:hover { background: var(--coral); color: #fff; transform: translateY(-2px); box-shadow: var(--sh-md); }
+    button.story__note:hover .story__note-ico, button.story__note:hover .story__note-arrow { color: #fff; }
+    .story__note-ico { color: var(--coral-dim); flex-shrink: 0; margin-top: 1px; transition: color var(--tb); }
+    .story__note-arrow { margin-left: auto; flex-shrink: 0; color: var(--coral-dim); transition: all var(--tb); }
+    button.story__note:hover .story__note-arrow { transform: translateX(3px); }
 
     .story__p { font-size: 1.05rem; color: var(--text-2); line-height: 1.8; margin-bottom: 1.4rem; font-weight: 400; }
     .story__p--hi { color: var(--text); font-weight: 600; }
@@ -776,10 +780,11 @@
           <div class="story__badge-name">Андрей Вертняков</div>
           <div class="story__badge-role">52 года · Предприниматель из Верхнеуральска</div>
         </div>
-        <div class="story__note">
+        <button type="button" class="story__note" data-modal="question">
           <svg class="story__note-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Будет на семинаре лично — задайте любой вопрос
-        </div>
+          <span>Будет на семинаре лично — задайте любой вопрос</span>
+          <svg class="story__note-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
       </div>
       <div>
         <div class="eyebrow eyebrow--peach">Реальная история</div>
