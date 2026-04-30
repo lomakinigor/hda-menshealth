@@ -208,11 +208,6 @@
     .hero__visual { position: relative; animation: fadeUp .9s var(--tb) .15s both; }
     .hero__photo { aspect-ratio: 4/5; overflow: hidden; position: relative; }
     .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero__photo::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, transparent 60%, rgba(255,90,60,.25) 100%);
-      mix-blend-mode: multiply;
-    }
     .hero__tag {
       position: absolute; top: -16px; right: 16px;
       background: var(--coral); color: var(--cream);
@@ -275,8 +270,8 @@
     .story { background: var(--cream); }
     .story__grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
     .story__sticky { position: sticky; top: 6rem; }
-    .story__photo { aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--coral); }
-    .story__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; mix-blend-mode: multiply; }
+    .story__photo { aspect-ratio: 3/4; overflow: hidden; position: relative; }
+    .story__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
     .story__photo:hover img { transform: scale(1.04); }
     .story__photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 4px var(--navy); pointer-events: none; }
     .story__cap { padding: 1.5rem 0 0; }
@@ -343,8 +338,8 @@
 
     .leader__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
     .leader__photo-wrap { position: sticky; top: 6rem; }
-    .leader__photo { aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--mustard); }
-    .leader__photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; mix-blend-mode: multiply; }
+    .leader__photo { aspect-ratio: 3/4; overflow: hidden; position: relative; }
+    .leader__photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
     .leader__photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 4px var(--navy); pointer-events: none; }
     .leader__caption { padding: 1.5rem 0 0; }
     .leader__caption-name { font-family: var(--fd); font-size: 1.4rem; font-weight: 800; line-height: 1.15; letter-spacing: -.025em; }
@@ -477,8 +472,8 @@
     /* === LOCATION === */
     .location { padding: 0; background: var(--cream); }
     .location__split { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
-    .location__img { position: relative; overflow: hidden; background: var(--mustard); }
-    .location__img img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+    .location__img { position: relative; overflow: hidden; }
+    .location__img img { width: 100%; height: 100%; object-fit: cover; }
     .location__content { padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center; background: var(--navy); color: var(--cream); position: relative; }
     .location__content::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--coral); }
     .location__content .eyebrow { background: var(--coral); }
