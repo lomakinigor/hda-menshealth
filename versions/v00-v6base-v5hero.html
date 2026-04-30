@@ -453,7 +453,7 @@
     .pricing__hdr { text-align: center; max-width: 680px; margin: 0 auto 4rem; position: relative; z-index: 1; }
     .pricing__hdr h2 em { color: var(--coral); }
     .pricing__sub { color: var(--text-2); margin-top: 1rem; font-size: 1.05rem; }
-    .pricing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 920px; margin: 0 auto; align-items: stretch; position: relative; z-index: 1; }
+    .pricing__grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 520px; margin: 0 auto; align-items: stretch; position: relative; z-index: 1; }
     .pcard { padding: 2.75rem 2.25rem; background: var(--surface); border-radius: var(--r-lg); position: relative; transition: all var(--tb); display: flex; flex-direction: column; box-shadow: var(--sh-sm); }
     .pcard:hover { transform: translateY(-6px); box-shadow: var(--sh-lg); }
     .pcard--top { background: var(--text); color: var(--cream); }
@@ -941,11 +941,10 @@
     <div class="pricing__hdr">
       <div class="eyebrow eyebrow--peach">Инвестиция в себя</div>
       <h2>Стоимость <em>участия</em></h2>
-      <p class="pricing__sub">Два формата на выбор. Возможна рассрочка по индивидуальной договорённости.</p>
+      <p class="pricing__sub">Возможна рассрочка по индивидуальной договорённости.</p>
     </div>
     <div class="pricing__grid">
       <div class="pcard pcard--top au">
-        <div class="pcard__badge">Максимальный</div>
         <div class="pcard__name">VIP MAX</div>
         <div class="pcard__price">
           <span class="pcard__amount">200 000</span>
@@ -960,22 +959,7 @@
           <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Сопровождение после семинара (3 мес.)</li>
         </ul>
         <p class="pcard__note">Проживание оплачивается отдельно</p>
-        <a href="#" class="btn btn--primary btn--block">Забронировать VIP MAX <span class="btn__arrow">→</span></a>
-      </div>
-      <div class="pcard au d2">
-        <div class="pcard__name">VIP СТАНДАРТ</div>
-        <div class="pcard__price">
-          <span class="pcard__amount">100 000</span>
-          <span class="pcard__cur">₽</span>
-        </div>
-        <ul class="pcard__feats">
-          <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>10 дней интенсива со Светловым</li>
-          <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Групповые практики и сессии</li>
-          <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Базовый протокол здоровья</li>
-          <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Закрытый чат выпускников</li>
-        </ul>
-        <p class="pcard__note">Проживание оплачивается отдельно</p>
-        <a href="#" class="btn btn--outline btn--block">Забронировать место <span class="btn__arrow">→</span></a>
+        <a href="#" class="btn btn--primary btn--block">Забронировать место <span class="btn__arrow">→</span></a>
       </div>
     </div>
     <p class="pricing__footnote">Семинар рассчитан на 20 человек. После заполнения мест запись закрывается.</p>
