@@ -181,25 +181,26 @@
     }
     .hero__content { max-width: 880px; margin: 0 auto; text-align: center; padding-top: 4rem; }
     .hero__pre {
-      font-family: var(--fb); font-size: .82rem; font-weight: 800;
-      letter-spacing: .35em; text-transform: uppercase;
+      font-family: var(--fb); font-size: clamp(.66rem, 2.4vw, .82rem); font-weight: 800;
+      letter-spacing: .28em; text-transform: uppercase;
       color: #fff;
       margin-bottom: 2rem; animation: fadeUp .8s var(--tb) both;
       text-shadow: 0 0 18px rgba(0,0,0,.95), 0 2px 8px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.9);
     }
-    .hero__pre::before, .hero__pre::after { content: '·'; margin: 0 1rem; color: var(--sun); text-shadow: 0 0 16px rgba(0,0,0,.9); }
+    .hero__pre::before, .hero__pre::after { content: '·'; margin: 0 .6rem; color: var(--sun); text-shadow: 0 0 16px rgba(0,0,0,.9); }
     .hero__title {
       font-family: var(--fd); font-weight: 400;
-      font-size: clamp(3rem, 9vw, 7.5rem);
-      line-height: .98; letter-spacing: -.02em;
-      color: #fff; margin-bottom: 1.75rem;
+      font-size: clamp(2.1rem, 10vw, 7.5rem);
+      line-height: 1.02; letter-spacing: -.02em;
+      color: #fff; margin-bottom: 1.5rem;
       text-shadow: 0 4px 28px rgba(0,0,0,.95), 0 2px 8px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.7);
       animation: fadeUp .9s var(--tb) .15s both;
+      overflow-wrap: break-word; word-break: break-word;
     }
     .hero__title em { font-style: italic; color: var(--sun); text-shadow: 0 4px 28px rgba(0,0,0,.85), 0 2px 6px rgba(0,0,0,.75); }
     .hero__sub {
       font-family: var(--fd); font-style: italic; font-weight: 400;
-      font-size: clamp(1.2rem, 1.9vw, 1.55rem); line-height: 1.45;
+      font-size: clamp(1.02rem, 1.9vw, 1.55rem); line-height: 1.45;
       max-width: 640px; margin: 0 auto 2.5rem;
       color: #fff;
       text-shadow: 0 2px 18px rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.8);
