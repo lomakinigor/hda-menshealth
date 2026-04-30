@@ -11,293 +11,267 @@
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* === TOKENS (NO BLACK) === */
+    /* === TOKENS === */
     :root {
-      --cream:      #fbf6ea;
-      --cream-2:    #f7f0db;
-      --paper:      #fdfaf2;
-      --surface:    #ffffff;
+      --cream:        #fdf6ec;
+      --cream-2:      #faecd6;
+      --peach:        #fde3cd;
+      --peach-2:      #fdd5c5;
+      --mint:         #e3eedb;
+      --mint-2:       #cde0c2;
+      --coral-soft:   #fbcdb9;
 
-      --navy:       #0e2240;
-      --navy-2:     #16315c;
-      --navy-soft:  #455879;
-      --muted:      #7a8093;
-      --faint:      #b0b3bc;
-      --border:     #e8e0cb;
-      --border-2:   #d1c8af;
+      --bg:           #fdf6ec;
+      --surface:      #ffffff;
+      --surface-2:    #fbf2e0;
 
-      --coral:      #ff5a3c;
-      --coral-hi:   #e84826;
-      --coral-dim:  #c93915;
-      --coral-soft: #ffd5cc;
+      --text:         #1f2926;
+      --text-2:       #2d3735;
+      --muted:        #6b7575;
+      --faint:        #a1a8a5;
+      --border:       #ece6d6;
+      --border-mint:  #c4d6b8;
+      --border-peach: #f5c9aa;
 
-      --mustard:    #f5b73f;
-      --mustard-hi: #e0a330;
-      --mustard-soft: #fde8b8;
+      --coral:        #e07a5f;
+      --coral-hi:     #d36a4d;
+      --coral-dim:    #b85740;
 
-      --mint:       #c6e4d0;
+      --forest:       #3d5a4a;
+      --forest-hi:    #4a6e5b;
 
-      --fd: 'Outfit', system-ui, sans-serif;
-      --fb: 'Inter', system-ui, sans-serif;
+      --sun:          #f4a261;
+
+      --fd: 'DM Serif Display', Georgia, serif;
+      --fb: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+      --r-sm: 14px;
+      --r-md: 24px;
+      --r-lg: 36px;
+      --r-xl: 48px;
+      --r-pill: 999px;
+
+      --sh-sm: 0 4px 14px rgba(31,41,38,.05);
+      --sh-md: 0 10px 30px rgba(31,41,38,.08);
+      --sh-lg: 0 20px 50px rgba(31,41,38,.10);
+      --sh-coral: 0 14px 40px rgba(224,122,95,.25);
 
       --tf: 200ms ease;
-      --tb: 300ms cubic-bezier(.4, 0, .2, 1);
+      --tb: 300ms cubic-bezier(.4,0,.2,1);
+      --ts: 500ms cubic-bezier(.34,1.56,.64,1);
     }
 
     /* === RESET === */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    body { font-family: var(--fb); background: var(--cream); color: var(--navy); line-height: 1.6; overflow-x: hidden; font-weight: 400; }
+    body { font-family: var(--fb); background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; font-weight: 400; }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
 
     /* === TYPE === */
-    h1, h2, h3, h4 { font-family: var(--fd); font-weight: 800; line-height: 1; letter-spacing: -.04em; color: var(--navy); }
-    h1 { font-size: clamp(3rem, 9vw, 7.5rem); font-weight: 900; line-height: .92; letter-spacing: -.045em; }
-    h2 { font-size: clamp(2.4rem, 6vw, 4.5rem); letter-spacing: -.04em; }
-    h3 { font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-weight: 700; letter-spacing: -.025em; }
+    h1, h2, h3, h4 { font-family: var(--fd); font-weight: 400; line-height: 1.05; letter-spacing: -.025em; color: var(--text); }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; }
+    h3 { font-size: clamp(1.4rem, 2.5vw, 1.85rem); line-height: 1.15; }
 
-    em { font-style: normal; color: var(--coral); }
-    strong { font-weight: 700; }
+    em { font-style: italic; }
 
     /* === LAYOUT === */
-    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .wrap--sm { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
-    section { padding: 7rem 0; position: relative; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .wrap--sm { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 6rem 0; position: relative; }
 
     /* === ANIMATIONS === */
     @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes pop { 0% { opacity:0; transform: scale(.94); } 100% { opacity:1; transform: scale(1); } }
-    .au { opacity:0; transform:translateY(24px); transition: opacity .65s ease, transform .65s ease; }
-    .au.v { opacity:1; transform:translateY(0); }
-    .d1 { transition-delay:.08s; } .d2 { transition-delay:.16s; }
-    .d3 { transition-delay:.24s; } .d4 { transition-delay:.32s; }
-    .d5 { transition-delay:.4s; }
+    @keyframes floatY { 0%,100% { transform:translateY(0) rotate(0); } 50% { transform:translateY(-12px) rotate(2deg); } }
+    @keyframes floatYr { 0%,100% { transform:translateY(0) rotate(0); } 50% { transform:translateY(-14px) rotate(-3deg); } }
+    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
 
-    /* === SECTION NUMBER === */
-    .secnum {
-      display: flex; align-items: baseline; gap: 1.25rem;
-      font-family: var(--fd); font-size: .75rem; font-weight: 700;
-      letter-spacing: .25em; text-transform: uppercase;
-      color: var(--navy-soft); margin-bottom: 1.5rem;
-    }
-    .secnum__digit { font-family: var(--fd); font-weight: 800; font-size: 1.4rem; color: var(--coral); letter-spacing: -.04em; line-height: 1; }
-    .secnum__rule { display: inline-block; width: 36px; height: 2px; background: var(--coral); margin-bottom: 4px; }
+    .au { opacity:0; transform:translateY(24px); transition: opacity .7s var(--tb), transform .7s var(--tb); }
+    .au.v { opacity:1; transform:translateY(0); }
+    .d1 { transition-delay:.1s; } .d2 { transition-delay:.2s; }
+    .d3 { transition-delay:.3s; } .d4 { transition-delay:.4s; }
+    .d5 { transition-delay:.5s; }
 
     /* === EYEBROW PILL === */
     .eyebrow {
       display: inline-flex; align-items: center; gap: .5rem;
-      padding: .4rem .9rem;
-      background: var(--coral); color: var(--cream);
-      font-family: var(--fd); font-size: .7rem; font-weight: 700;
-      letter-spacing: .15em; text-transform: uppercase;
+      padding: .5rem 1rem; border-radius: var(--r-pill);
+      background: var(--mint); color: var(--forest);
+      font-size: .76rem; font-weight: 600; letter-spacing: -.005em;
       margin-bottom: 1.5rem;
     }
-    .eyebrow--mustard { background: var(--mustard); color: var(--navy); }
-    .eyebrow--navy { background: var(--navy); color: var(--cream); }
-    .eyebrow--outline { background: transparent; color: var(--coral); border: 1.5px solid var(--coral); }
+    .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--coral); }
+    .eyebrow--peach { background: var(--peach); color: var(--coral-dim); }
+    .eyebrow--peach::before { background: var(--coral-dim); }
+    .eyebrow--cream { background: var(--cream-2); color: var(--text); }
+    .eyebrow--cream::before { background: var(--sun); }
 
     /* === BUTTONS === */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
-      padding: 1.05rem 2.25rem; border-radius: 0;
-      font-family: var(--fd); font-size: .82rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      padding: 1.05rem 2rem; border-radius: var(--r-pill);
+      font-family: var(--fb); font-size: .95rem; font-weight: 600;
       cursor: pointer; border: 2px solid transparent;
-      transition: all var(--tb); text-decoration: none;
+      transition: all var(--tb); text-decoration: none; white-space: nowrap;
     }
-    .btn--primary { background: var(--coral); color: var(--cream); border-color: var(--coral); }
-    .btn--primary:hover { background: var(--coral-hi); border-color: var(--coral-hi); transform: translateY(-2px); }
+    .btn--primary { background: var(--coral); color: #fff; border-color: var(--coral); box-shadow: var(--sh-coral); }
+    .btn--primary:hover { background: var(--coral-hi); border-color: var(--coral-hi); transform: translateY(-2px); box-shadow: 0 18px 50px rgba(224,122,95,.35); }
     .btn--primary:active { transform: scale(.98); }
-    .btn--navy { background: var(--navy); color: var(--cream); border-color: var(--navy); }
-    .btn--navy:hover { background: var(--coral); border-color: var(--coral); transform: translateY(-2px); }
-    .btn--outline { background: transparent; color: var(--navy); border-color: var(--navy); }
-    .btn--outline:hover { background: var(--navy); color: var(--cream); }
-    .btn--cream { background: var(--cream); color: var(--navy); border-color: var(--cream); }
-    .btn--cream:hover { background: var(--coral); color: var(--cream); border-color: var(--coral); }
-    .btn--lg { padding: 1.2rem 2.5rem; font-size: .88rem; }
+    .btn--dark { background: var(--text); color: var(--cream); border-color: var(--text); }
+    .btn--dark:hover { background: var(--forest); border-color: var(--forest); transform: translateY(-2px); }
+    .btn--outline { background: var(--surface); color: var(--text); border-color: var(--border); }
+    .btn--outline:hover { border-color: var(--text); transform: translateY(-2px); box-shadow: var(--sh-sm); }
+    .btn--white { background: #fff; color: var(--coral); border-color: #fff; }
+    .btn--white:hover { background: var(--text); color: #fff; border-color: var(--text); }
+    .btn--lg { padding: 1.2rem 2.5rem; font-size: 1rem; }
     .btn--block { width: 100%; }
-    .btn__arrow { font-size: 1.1em; transition: transform var(--tb); font-weight: 800; }
+    .btn__arrow { font-size: 1.1em; transition: transform var(--tb); }
     .btn:hover .btn__arrow { transform: translateX(4px); }
-
-    /* === MASTHEAD STRIP === */
-    .mast {
-      background: var(--navy); color: var(--cream);
-    }
-    .mast__inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .65rem 2rem; max-width: 1280px; margin: 0 auto;
-      font-family: var(--fd); font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 700;
-    }
-    .mast__center { color: var(--coral-soft); }
-    .mast__right { color: var(--mustard); }
-
-    @media (max-width: 640px) {
-      .mast__inner { flex-direction: column; gap: .35rem; padding: .5rem 1rem; font-size: .58rem; text-align: center; }
-    }
 
     /* === HEADER === */
     .hdr {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(251,246,234,.92);
-      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      position: fixed; top: 1rem; left: 1rem; right: 1rem; z-index: 100;
+      background: rgba(253,246,236,.85);
+      -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--r-pill);
+      transition: all var(--tb);
+      max-width: 1200px; margin: 0 auto;
     }
-    .hdr__inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem; max-width: 1280px; margin: 0 auto;
-    }
-    .hdr__logo { display: flex; align-items: center; gap: .75rem; }
-    .hdr__logo img { width: 36px; height: 36px; }
-    .hdr__logo-txt {
-      font-family: var(--fd); font-weight: 800; font-size: 1.1rem; line-height: 1;
-      letter-spacing: -.03em;
-    }
-    .hdr__nav { display: flex; gap: 2rem; }
-    .hdr__nav a { font-family: var(--fd); font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--navy-soft); transition: color var(--tf); }
+    .hdr.scrolled { box-shadow: var(--sh-md); }
+    .hdr__inner { display: flex; align-items: center; justify-content: space-between; padding: .65rem 1rem .65rem 1.25rem; }
+    .hdr__logo { display: flex; align-items: center; gap: .65rem; }
+    .hdr__logo img { width: 32px; height: 32px; flex-shrink: 0; }
+    .hdr__logo-txt { font-family: var(--fb); font-size: .68rem; font-weight: 700; line-height: 1.15; letter-spacing: .14em; text-transform: uppercase; max-width: 180px; color: var(--text); }
+    .hdr__nav { display: flex; gap: 1.75rem; }
+    .hdr__nav a { font-size: .9rem; font-weight: 500; color: var(--text-2); transition: color var(--tf); }
     .hdr__nav a:hover { color: var(--coral); }
-    .hdr__cta a {
-      font-family: var(--fd); font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--cream); background: var(--coral); padding: .65rem 1.25rem;
-      transition: background var(--tf);
-    }
-    .hdr__cta a:hover { background: var(--navy); }
-    .hdr__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .5rem; }
-    .hdr__burger span { display: block; width: 24px; height: 2px; background: var(--navy); }
+    .hdr__cta .btn { padding: .65rem 1.4rem; font-size: .85rem; }
+    .hdr__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .65rem; }
+    .hdr__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
 
     @media (max-width: 900px) {
-      .hdr__nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; flex-direction: column; gap: 0; background: var(--cream); padding: 5rem 2rem 2rem; z-index: 99; }
+      .hdr__nav { display: none; position: absolute; top: calc(100% + .5rem); left: 0; right: 0; flex-direction: column; gap: 0;
+        background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-md); padding: .75rem; box-shadow: var(--sh-md); }
       .hdr__nav.open { display: flex; }
-      .hdr__nav a { padding: 1.15rem 0; border-bottom: 1px solid var(--border); font-size: 1rem; }
+      .hdr__nav a { padding: .85rem 1rem; border-radius: var(--r-sm); font-size: 1rem; }
+      .hdr__nav a:hover { background: var(--mint); }
       .hdr__cta { display: none; }
-      .hdr__burger { display: flex; position: relative; z-index: 101; }
+      .hdr__burger { display: flex; }
     }
 
-    /* === HERO === */
-    .hero { padding: 5rem 0 4rem; position: relative; overflow: hidden; }
-    .hero__inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: end; }
-    .hero__text { animation: fadeUp .8s var(--tb) both; }
+    /* === HERO (v5-style centered, bright text on photo) === */
+    .hero {
+      padding: 0; min-height: 100svh;
+      display: grid; grid-template-rows: 1fr auto;
+      position: relative; overflow: hidden;
+      color: #fff;
+    }
+    .hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+    .hero__bg::after { display: none; }
+    .hero__inner {
+      position: relative; z-index: 1;
+      padding: 9rem 1.5rem 3rem;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+    }
+    .hero__content { max-width: 880px; margin: 0 auto; text-align: center; padding-top: 4rem; }
     .hero__pre {
-      display: inline-flex; align-items: center; gap: .75rem;
-      font-family: var(--fd); font-size: .72rem; font-weight: 700;
-      letter-spacing: .25em; text-transform: uppercase; color: var(--coral);
-      margin-bottom: 2rem;
+      font-family: var(--fb); font-size: .82rem; font-weight: 800;
+      letter-spacing: .35em; text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 2rem; animation: fadeUp .8s var(--tb) both;
+      text-shadow: 0 0 18px rgba(0,0,0,.95), 0 2px 8px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.9);
     }
-    .hero__pre::before { content: ''; width: 36px; height: 2px; background: var(--coral); }
-    .hero__title { margin-bottom: 1.5rem; }
-    .hero__title em { color: var(--coral); position: relative; }
-    .hero__title em::after {
-      content: ''; position: absolute; left: 0; right: 0; bottom: 8%;
-      height: .12em; background: var(--mustard); z-index: -1;
+    .hero__pre::before, .hero__pre::after { content: '·'; margin: 0 1rem; color: var(--sun); text-shadow: 0 0 16px rgba(0,0,0,.9); }
+    .hero__title {
+      font-family: var(--fd); font-weight: 400;
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: .98; letter-spacing: -.02em;
+      color: #fff; margin-bottom: 1.75rem;
+      text-shadow: 0 4px 28px rgba(0,0,0,.95), 0 2px 8px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.7);
+      animation: fadeUp .9s var(--tb) .15s both;
     }
-    .hero__sub { font-size: clamp(1.05rem, 1.7vw, 1.22rem); color: var(--navy-soft); max-width: 540px; line-height: 1.5; margin-bottom: 2.5rem; animation: fadeUp .8s var(--tb) .1s both; font-weight: 500; }
-
-    .hero__meta { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; padding: 1.5rem 0; margin-bottom: 2.5rem; border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy); animation: fadeUp .8s var(--tb) .2s both; }
-    .hero__meta-item { padding: 0 1.25rem; border-right: 1px solid var(--border-2); }
-    .hero__meta-item:last-child { border-right: none; }
-    .hero__meta-item:first-child { padding-left: 0; }
-    .hero__meta-lbl { font-family: var(--fd); font-size: .62rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--navy-soft); margin-bottom: .35rem; }
-    .hero__meta-val { font-family: var(--fd); font-size: 1rem; font-weight: 700; color: var(--navy); letter-spacing: -.01em; line-height: 1.2; }
-    .hero__meta-val--hi { color: var(--coral); }
-
-    .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; animation: fadeUp .8s var(--tb) .3s both; }
-    .hero__note { margin-top: 1rem; font-size: .82rem; color: var(--muted); animation: fadeUp .8s var(--tb) .4s both; }
-
-    .hero__visual { position: relative; animation: fadeUp .9s var(--tb) .15s both; }
-    .hero__photo { aspect-ratio: 4/5; overflow: hidden; position: relative; }
-    .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero__tag {
-      position: absolute; top: -16px; right: 16px;
-      background: var(--coral); color: var(--cream);
-      padding: .85rem 1.25rem;
-      font-family: var(--fd); font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-      transform: rotate(3deg);
-      animation: pop .6s var(--tb) .5s both;
+    .hero__title em { font-style: italic; color: var(--sun); text-shadow: 0 4px 28px rgba(0,0,0,.85), 0 2px 6px rgba(0,0,0,.75); }
+    .hero__sub {
+      font-family: var(--fd); font-style: italic; font-weight: 400;
+      font-size: clamp(1.2rem, 1.9vw, 1.55rem); line-height: 1.45;
+      max-width: 640px; margin: 0 auto 2.5rem;
+      color: #fff;
+      text-shadow: 0 2px 18px rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.8);
+      animation: fadeUp .9s var(--tb) .3s both;
     }
-    .hero__tag-2 {
-      position: absolute; bottom: -16px; left: -8px;
-      background: var(--mustard); color: var(--navy);
-      padding: .85rem 1.25rem;
-      font-family: var(--fd); font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-      transform: rotate(-2deg);
-      animation: pop .6s var(--tb) .65s both;
+    .hero__line {
+      width: 60px; height: 2px; background: var(--sun);
+      margin: 0 auto 2.5rem;
+      animation: fadeUp .9s var(--tb) .45s both;
+      box-shadow: 0 0 14px rgba(244,162,97,.7);
     }
+    .hero__cta { animation: fadeUp .9s var(--tb) .55s both; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero__bottom {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      padding: 2rem 1.5rem 2.5rem;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      border-top: 1px solid rgba(255,255,255,.32);
+      animation: fadeUp 1s var(--tb) .8s both;
+    }
+    .hero__meta { color: #fff; }
+    .hero__meta-lbl { font-family: var(--fb); font-size: .68rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--sun); margin-bottom: .55rem; text-shadow: 0 2px 14px rgba(0,0,0,.85), 0 0 4px rgba(0,0,0,.7); }
+    .hero__meta-val { font-family: var(--fd); font-size: 1.3rem; line-height: 1.2; color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,.9), 0 0 6px rgba(0,0,0,.7); }
+    .hero__meta:nth-child(2) { text-align: center; }
+    .hero__meta:nth-child(3) { text-align: right; }
 
-    @media (max-width: 900px) {
-      .hero__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero__meta { grid-template-columns: 1fr; gap: 1rem; padding: 1rem 0; }
-      .hero__meta-item { border-right: none; padding: .75rem 0; border-bottom: 1px solid var(--border-2); }
-      .hero__meta-item:last-child { border-bottom: none; }
+    @media (max-width: 768px) {
+      .hero__inner { padding: 7rem 1.25rem 2rem; }
+      .hero__content { padding-top: 1.5rem; }
+      .hero__bottom { grid-template-columns: 1fr; gap: 1.25rem; text-align: left !important; padding: 1.5rem 1.25rem 2rem; }
+      .hero__meta:nth-child(n) { text-align: left; }
     }
 
     /* === PAIN === */
-    .pain { background: var(--surface); border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy); }
-    .pain__hdr { max-width: 880px; margin-bottom: 4rem; }
+    .pain { background: var(--peach); position: relative; overflow: hidden; }
+    .pain::before { content: ''; position: absolute; top: -100px; right: -100px; width: 360px; height: 360px; border-radius: 50%; background: var(--coral-soft); filter: blur(80px); pointer-events: none; }
+    .pain__hdr { text-align: center; max-width: 680px; margin: 0 auto 4rem; position: relative; z-index: 1; }
     .pain__hdr h2 em { color: var(--coral); }
-    .pain__lede { font-size: 1.1rem; color: var(--navy-soft); line-height: 1.6; margin-top: 1rem; max-width: 720px; font-weight: 500; }
+    .pain__lede { font-size: 1.08rem; color: var(--text-2); margin-top: 1rem; line-height: 1.65; font-weight: 400; }
 
-    .pain__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-    .pain__item {
+    .pain__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; position: relative; z-index: 1; }
+    .pain__card {
+      background: var(--surface); border-radius: var(--r-lg); padding: 1.5rem;
       display: flex; gap: 1rem; align-items: flex-start;
-      padding: 1.75rem 1.5rem;
-      border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      transition: all var(--tb); position: relative;
+      transition: all var(--tb); box-shadow: var(--sh-sm);
     }
-    .pain__item:hover { background: var(--cream-2); }
-    .pain__item:hover::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--coral);
-    }
-    .pain__num {
-      flex-shrink: 0; font-family: var(--fd); font-size: 1.05rem; font-weight: 800; color: var(--coral);
-      letter-spacing: -.02em; min-width: 28px;
-    }
-    .pain__txt { font-size: .98rem; color: var(--navy); line-height: 1.5; font-weight: 500; }
+    .pain__card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+    .pain__check { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--mint); color: var(--forest); display: flex; align-items: center; justify-content: center; }
+    .pain__txt { font-size: .96rem; color: var(--text-2); line-height: 1.5; padding-top: .5rem; font-weight: 500; }
 
-    .pain__close {
-      margin-top: 4rem; padding: 3rem 2.5rem; max-width: 760px; margin-left: auto; margin-right: auto;
-      background: var(--navy); color: var(--cream); text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .pain__close::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--coral);
-    }
-    .pain__close strong { display: block; font-family: var(--fd); font-weight: 800; font-size: clamp(1.35rem, 2.5vw, 1.75rem); margin-bottom: .75rem; color: var(--mustard); letter-spacing: -.02em; }
-    .pain__close p { font-size: 1.05rem; line-height: 1.6; color: rgba(251,246,234,.85); }
+    .pain__close { margin-top: 4rem; padding: 2.5rem 2rem; text-align: center; background: var(--text); color: var(--cream); border-radius: var(--r-lg); max-width: 760px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
+    .pain__close p { font-size: 1.08rem; line-height: 1.65; }
+    .pain__close strong { color: #fff; font-weight: 700; display: block; margin-bottom: .5rem; font-size: 1.2rem; font-family: var(--fd); }
 
     /* === STORY === */
-    .story { background: var(--cream); }
-    .story__grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+    .story { background: var(--bg); }
+    .story__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
     .story__sticky { position: sticky; top: 6rem; }
-    .story__photo { aspect-ratio: 3/4; overflow: hidden; position: relative; }
+    .story__photo { aspect-ratio: 3/4; overflow: hidden; border-radius: var(--r-lg); box-shadow: var(--sh-md); }
     .story__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
     .story__photo:hover img { transform: scale(1.04); }
-    .story__photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 4px var(--navy); pointer-events: none; }
-    .story__cap { padding: 1.5rem 0 0; }
-    .story__cap-name { font-family: var(--fd); font-size: 1.3rem; font-weight: 800; letter-spacing: -.025em; }
-    .story__cap-meta { font-family: var(--fd); font-size: .72rem; color: var(--coral); margin-top: .35rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
-    .story__cap-note {
-      margin-top: 1rem; padding: .75rem 1rem; background: var(--mustard-soft);
-      font-size: .88rem; color: var(--navy); line-height: 1.5; font-weight: 600;
-      display: flex; align-items: flex-start; gap: .55rem;
-    }
-    .story__cap-ico { color: var(--coral-hi); flex-shrink: 0; margin-top: 1px; }
+    .story__badge { padding: 1.1rem 1.4rem; background: var(--mint); border-radius: var(--r-md); margin-top: 1rem; }
+    .story__badge-name { font-family: var(--fd); font-size: 1.15rem; font-weight: 400; }
+    .story__badge-role { font-size: .82rem; color: var(--muted); margin-top: .25rem; font-weight: 500; }
+    .story__note { display: flex; align-items: flex-start; gap: .65rem; padding: 1rem 1.25rem; background: var(--peach); border-radius: var(--r-md); margin-top: 1rem; font-size: .88rem; color: var(--coral-dim); line-height: 1.5; font-weight: 500; }
+    .story__note-ico { color: var(--coral-dim); flex-shrink: 0; margin-top: 1px; }
 
-    .story__text p { font-size: 1.08rem; line-height: 1.85; color: var(--navy); margin-bottom: 1.4rem; font-weight: 400; }
-    .story__text p:first-of-type::first-letter {
-      font-family: var(--fd); float: left; font-size: 5.5rem; line-height: .85;
-      padding: .35rem .65rem 0 0; font-weight: 900; color: var(--coral); letter-spacing: -.05em;
-    }
-    .story__text strong { font-weight: 700; color: var(--navy); }
-
-    .story__quote {
-      margin: 2rem 0; padding: 2rem 2.5rem; background: var(--navy); color: var(--cream);
-      position: relative;
-    }
-    .story__quote::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--coral); }
-    .story__quote p { font-family: var(--fd); font-size: clamp(1.25rem, 2.2vw, 1.55rem); line-height: 1.4; margin-bottom: .85rem; color: var(--cream); font-weight: 600; letter-spacing: -.025em; }
-    .story__quote cite { font-family: var(--fd); font-size: .72rem; color: var(--mustard); font-style: normal; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .story__p { font-size: 1.05rem; color: var(--text-2); line-height: 1.8; margin-bottom: 1.4rem; font-weight: 400; }
+    .story__p--hi { color: var(--text); font-weight: 600; }
+    .story__quote { margin: 2rem 0; padding: 2rem 2.5rem; background: var(--mint); border-radius: var(--r-lg); }
+    .story__quote p { font-family: var(--fd); font-size: 1.3rem; color: var(--text); line-height: 1.4; margin-bottom: 1rem; font-weight: 400; }
+    .story__quote cite { font-size: .85rem; color: var(--forest); font-style: normal; font-weight: 600; }
 
     @media (max-width: 900px) {
       .story__grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -305,317 +279,276 @@
     }
 
     /* === PARABLE === */
-    .parable { background: var(--navy); color: var(--cream); padding: 8rem 0; position: relative; overflow: hidden; }
-    .parable::before {
-      content: ''; position: absolute; top: -50px; right: -100px;
-      width: 500px; height: 500px; background: var(--coral); opacity: .08; filter: blur(80px);
-      border-radius: 50%;
-    }
-    .parable::after {
-      content: ''; position: absolute; bottom: -50px; left: -100px;
-      width: 400px; height: 400px; background: var(--mustard); opacity: .08; filter: blur(80px);
-      border-radius: 50%;
-    }
-    .parable__inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 2rem; }
-    .parable__hdr { margin-bottom: 4rem; }
+    .parable { background: var(--forest); color: var(--cream); position: relative; overflow: hidden; }
+    .parable::before { content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(228, 196, 161,.15); filter: blur(80px); pointer-events: none; }
+    .parable::after { content: ''; position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(224,122,95,.2); filter: blur(80px); pointer-events: none; }
+    .parable__inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+    .parable__hdr { text-align: center; margin-bottom: 3rem; }
     .parable__hdr h2 { color: var(--cream); }
-    .parable__hdr h2 em { color: var(--coral); }
-    .parable__body p { font-size: 1.08rem; line-height: 1.85; color: rgba(251,246,234,.82); margin-bottom: 1.5rem; }
-    .parable__body p strong {
-      display: block; margin: 2rem 0;
-      font-family: var(--fd); font-weight: 800; font-size: clamp(1.4rem, 2.5vw, 1.85rem); line-height: 1.25;
-      color: var(--mustard); letter-spacing: -.03em;
-    }
-    .parable__final { margin-top: 4rem; padding: 2.5rem; background: rgba(251,246,234,.06); border-left: 4px solid var(--coral); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-    .parable__final p { font-family: var(--fd); font-size: clamp(1.3rem, 2.3vw, 1.7rem); line-height: 1.3; color: var(--cream); margin-bottom: .5rem; font-weight: 700; letter-spacing: -.03em; }
-    .parable__final p:last-child { color: var(--coral); }
+    .parable__hdr h2 em { color: var(--peach-2); }
+    .parable .eyebrow { background: rgba(253,246,236,.12); color: var(--peach-2); }
+    .parable .eyebrow::before { background: var(--peach-2); }
+    .parable__p { font-size: 1.08rem; line-height: 1.85; color: rgba(253,246,236,.85); margin-bottom: 1.5rem; }
+    .parable__p--hi { color: var(--cream); font-family: var(--fd); font-size: 1.4rem; font-weight: 400; line-height: 1.4; display: block; padding: 1rem 0; }
+    .parable__final { margin-top: 3rem; padding: 2rem; text-align: center; background: rgba(253,246,236,.08); border-radius: var(--r-lg); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    .parable__final p { font-family: var(--fd); font-size: 1.3rem; color: var(--cream); line-height: 1.4; margin-bottom: .5rem; font-weight: 400; }
+    .parable__final p:last-child { color: var(--peach-2); }
 
     /* === LEADER === */
-    .leader { background: var(--cream-2); }
-    .leader__inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .leader__top { max-width: 880px; margin-bottom: 4rem; }
-    .leader__top h2 em { color: var(--coral); }
-
-    .leader__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
-    .leader__photo-wrap { position: sticky; top: 6rem; }
-    .leader__photo { aspect-ratio: 3/4; overflow: hidden; position: relative; }
+    .leader { background: var(--mint); position: relative; overflow: hidden; }
+    .leader__grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+    .leader__photo { aspect-ratio: 3/4; overflow: hidden; border-radius: var(--r-lg); box-shadow: var(--sh-md); position: sticky; top: 6rem; }
     .leader__photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-    .leader__photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 4px var(--navy); pointer-events: none; }
-    .leader__caption { padding: 1.5rem 0 0; }
-    .leader__caption-name { font-family: var(--fd); font-size: 1.4rem; font-weight: 800; line-height: 1.15; letter-spacing: -.025em; }
-    .leader__caption-role { font-family: var(--fd); font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); margin-top: .5rem; font-weight: 700; }
-
-    .leader__intro {
-      font-family: var(--fd); font-weight: 700;
-      font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.25; color: var(--navy);
-      margin-bottom: 3rem; padding: 0 0 3rem; border-bottom: 2px solid var(--navy);
-      letter-spacing: -.03em;
-    }
-
-    .leader__creds { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
+    .leader__hdr { margin-bottom: 2rem; }
+    .leader__hdr h2 em { color: var(--coral); }
+    .leader__name-card { padding: 1.5rem 1.75rem; background: var(--surface); border-radius: var(--r-md); margin-bottom: 2.5rem; box-shadow: var(--sh-sm); }
+    .leader__name { font-family: var(--fd); font-size: 1.2rem; font-weight: 400; }
+    .leader__role { font-size: .85rem; color: var(--coral-dim); margin-top: .35rem; font-weight: 600; }
+    .leader__creds { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-bottom: 2.5rem; }
     .leader__cred {
-      padding: 1.1rem 1.25rem; background: var(--surface);
-      font-size: .94rem; color: var(--navy); line-height: 1.4;
-      display: flex; align-items: flex-start; gap: .75rem;
-      border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      font-weight: 500;
-      transition: background var(--tb);
+      padding: .95rem 1.2rem; background: var(--surface); border-radius: var(--r-md);
+      font-size: .92rem; color: var(--text-2); line-height: 1.4;
+      display: flex; align-items: flex-start; gap: .65rem; font-weight: 500;
+      transition: all var(--tb); box-shadow: var(--sh-sm);
     }
-    .leader__cred:hover { background: var(--mustard-soft); }
-    .leader__cred-num { font-family: var(--fd); font-size: .82rem; font-weight: 800; color: var(--coral); letter-spacing: -.02em; min-width: 22px; }
-
-    .leader__quote {
-      margin-top: 3rem; padding: 2.5rem; background: var(--coral); color: var(--cream);
-      position: relative;
-    }
-    .leader__quote::before {
-      content: '"'; position: absolute; top: -.4em; left: .85rem;
-      font-family: var(--fd); font-size: 9rem; line-height: 1; color: var(--mustard); font-weight: 900;
-    }
-    .leader__quote p { font-family: var(--fd); font-weight: 700; font-size: clamp(1.3rem, 2.3vw, 1.7rem); line-height: 1.3; margin-bottom: 1.25rem; color: var(--cream); position: relative; z-index: 1; letter-spacing: -.03em; }
-    .leader__quote cite { font-family: var(--fd); font-size: .72rem; opacity: .9; font-style: normal; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; position: relative; z-index: 1; }
+    .leader__cred:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
+    .leader__cred::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--coral); margin-top: 8px; }
+    .leader__quote { padding: 2rem 2.25rem; background: var(--text); color: var(--cream); border-radius: var(--r-lg); }
+    .leader__quote p { font-family: var(--fd); font-size: 1.3rem; line-height: 1.4; margin-bottom: 1rem; font-weight: 400; }
+    .leader__quote cite { font-size: .85rem; opacity: .8; font-style: normal; font-weight: 500; }
 
     @media (max-width: 900px) {
       .leader__grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .leader__photo-wrap { position: static; max-width: 360px; }
+      .leader__photo { position: static; max-width: 360px; }
       .leader__creds { grid-template-columns: 1fr; }
     }
 
     /* === PROGRAM === */
-    .program { background: var(--surface); border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy); }
-    .program__inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .program__top { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; padding-bottom: 2.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 0; }
-    .program__top h2 em { color: var(--coral); }
-    .program__top-meta {
-      text-align: right; font-family: var(--fd); font-size: .72rem; font-weight: 700;
-      letter-spacing: .2em; text-transform: uppercase; color: var(--navy-soft);
+    .program { background: var(--bg); position: relative; overflow: hidden; }
+    .program__hdr { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+    .program__hdr h2 em { color: var(--coral); }
+    .program__sub { color: var(--muted); margin-top: 1rem; font-size: 1.05rem; }
+    .program__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+    .program__day {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.5rem; border-radius: var(--r-md);
+      transition: all var(--tb); border: 2px solid transparent;
     }
-    .program__top-meta span {
-      display: block; font-family: var(--fd); font-weight: 800; font-size: 1.35rem;
-      letter-spacing: -.025em; text-transform: none; color: var(--coral); margin-top: .35rem;
+    .program__day:nth-child(3n+1) { background: var(--peach); }
+    .program__day:nth-child(3n+2) { background: var(--mint); }
+    .program__day:nth-child(3n+3) { background: var(--cream-2); }
+    .program__day:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+    .program__num {
+      flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%;
+      background: var(--surface); color: var(--text);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fd); font-size: 1.15rem; font-weight: 400;
+      box-shadow: var(--sh-sm);
     }
-
-    .program__list { list-style: none; }
-    .program__row {
-      display: grid; grid-template-columns: 70px 1fr auto; gap: 2.5rem; align-items: center;
-      padding: 1.6rem 0; border-bottom: 1px solid var(--border);
-      transition: padding var(--tb), background var(--tb);
-    }
-    .program__row:hover { padding-left: 1rem; padding-right: 1rem; background: var(--cream-2); }
-    .program__row-num {
-      font-family: var(--fd); font-size: 2.4rem; font-weight: 900; color: var(--coral);
-      letter-spacing: -.05em; line-height: 1;
-    }
-    .program__row-title { font-family: var(--fd); font-size: 1.18rem; font-weight: 600; line-height: 1.35; color: var(--navy); letter-spacing: -.02em; }
-    .program__row-day { font-family: var(--fd); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--navy-soft); font-weight: 700; }
-
-    .program__note {
-      margin-top: 3rem; padding: 1.5rem 2rem;
-      background: var(--mustard); color: var(--navy); text-align: center;
-      font-family: var(--fd); font-size: .98rem; font-weight: 600; letter-spacing: -.01em;
-    }
-    .program__note strong { color: var(--coral-dim); font-weight: 800; }
-
-    @media (max-width: 768px) {
-      .program__top { grid-template-columns: 1fr; gap: 1.5rem; align-items: flex-start; }
-      .program__top-meta { text-align: left; }
-      .program__row { grid-template-columns: 50px 1fr; gap: 1rem; }
-      .program__row-day { display: none; }
-      .program__row-title { font-size: 1.02rem; }
-      .program__row-num { font-size: 1.8rem; }
-    }
+    .program__lbl { font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--muted); margin-bottom: .35rem; }
+    .program__title { font-size: 1rem; color: var(--text); line-height: 1.5; font-weight: 600; }
+    .program__note { margin-top: 3rem; padding: 1.5rem 2rem; text-align: center; background: var(--surface); border-radius: var(--r-md); color: var(--text-2); font-size: .95rem; box-shadow: var(--sh-sm); }
+    .program__note strong { color: var(--coral); font-weight: 700; }
 
     /* === RESULTS === */
-    .results { background: var(--cream); }
-    .results__inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .results__top { max-width: 880px; margin-bottom: 4rem; }
-    .results__top h2 em { color: var(--coral); }
-
+    .results { background: var(--cream-2); position: relative; overflow: hidden; }
+    .results__hdr { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+    .results__hdr h2 em { color: var(--coral); }
     .results__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .rcard { padding: 2.5rem 2rem; transition: all var(--tb); position: relative; overflow: hidden; }
-    .rcard:hover { transform: translateY(-6px); }
-    .rcard--1 { background: var(--coral); color: var(--cream); }
-    .rcard--2 { background: var(--navy); color: var(--cream); }
-    .rcard--3 { background: var(--mustard); color: var(--navy); }
-    .rcard__num { font-family: var(--fd); font-size: 4rem; font-weight: 900; line-height: 1; margin-bottom: 1.25rem; letter-spacing: -.05em; }
-    .rcard--1 .rcard__num { color: var(--mustard); }
-    .rcard--2 .rcard__num { color: var(--coral); }
-    .rcard--3 .rcard__num { color: var(--coral); }
-    .rcard__title { color: inherit; margin-bottom: 1.5rem; }
+    .rcard { padding: 2.5rem 2rem; border-radius: var(--r-lg); transition: all var(--tb); position: relative; overflow: hidden; }
+    .rcard:hover { transform: translateY(-6px); box-shadow: var(--sh-lg); }
+    .rcard--1 { background: var(--mint); }
+    .rcard--2 { background: var(--peach); }
+    .rcard--3 { background: var(--coral-soft); }
+    .rcard__icon {
+      width: 64px; height: 64px; border-radius: var(--r-md);
+      background: var(--surface); color: var(--coral);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; box-shadow: var(--sh-sm);
+    }
+    .rcard--1 .rcard__icon { color: var(--forest); }
+    .rcard--2 .rcard__icon { color: var(--coral-dim); }
+    .rcard--3 .rcard__icon { color: var(--coral-dim); }
+    .rcard__title { font-size: 1.6rem; font-weight: 400; margin-bottom: 1.5rem; }
     .rcard__list { list-style: none; }
-    .rcard__item { padding: .7rem 0; font-size: .94rem; line-height: 1.5; border-bottom: 1px solid currentColor; opacity: .92; font-weight: 500; }
-    .rcard--1 .rcard__item, .rcard--2 .rcard__item { border-bottom-color: rgba(251,246,234,.2); }
-    .rcard--3 .rcard__item { border-bottom-color: rgba(14,34,64,.15); }
+    .rcard__item { display: flex; gap: .65rem; align-items: flex-start; padding: .7rem 0; font-size: .95rem; color: var(--text-2); line-height: 1.5; border-bottom: 1px solid rgba(31,41,38,.1); font-weight: 500; }
     .rcard__item:last-child { border-bottom: none; padding-bottom: 0; }
-    .rcard__item::before { content: '→ '; font-weight: 800; }
+    .rcard__item::before { content: ''; flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--surface); display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; }
 
     @media (max-width: 900px) { .results__grid { grid-template-columns: 1fr; } }
 
     /* === LIVE === */
-    .live { background: var(--surface); border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy); }
-    .live__inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .live__grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: center; }
+    .live { background: var(--bg); }
+    .live__card {
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem;
+      padding: 4rem 3rem; background: var(--peach); border-radius: var(--r-lg);
+      align-items: center; position: relative; overflow: hidden;
+    }
     .live__col h2 em { color: var(--coral); }
-    .live__col p { font-size: 1.05rem; color: var(--navy); line-height: 1.7; margin-bottom: 1.25rem; }
-    .live__col p strong { font-weight: 700; }
+    .live__col p { font-size: 1.04rem; color: var(--text-2); line-height: 1.7; margin-bottom: 1.2rem; font-weight: 400; }
+    .live__col p strong { font-weight: 700; color: var(--text); }
     .live__btn-wrap { margin-top: 2rem; }
-    .live__pull { padding: 2.5rem; background: var(--coral); color: var(--cream); position: relative; }
-    .live__pull::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 6px; background: var(--mustard); }
-    .live__pull p { font-family: var(--fd); font-size: clamp(1.3rem, 2.3vw, 1.65rem); line-height: 1.3; margin-bottom: 1rem; color: var(--cream); font-weight: 700; letter-spacing: -.03em; }
-    .live__pull cite { font-family: var(--fd); font-size: .72rem; color: var(--mustard); font-style: normal; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .live__pull { padding: 2.25rem; background: var(--surface); border-radius: var(--r-md); box-shadow: var(--sh-sm); }
+    .live__pull p { font-family: var(--fd); font-size: 1.3rem; line-height: 1.4; margin-bottom: 1rem; color: var(--text); font-weight: 400; }
+    .live__pull cite { font-size: .85rem; color: var(--muted); font-style: normal; font-weight: 600; }
 
     @media (max-width: 900px) {
-      .live__grid { grid-template-columns: 1fr; gap: 3rem; }
-      .live__pull { padding: 2rem; }
+      .live__card { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 1.5rem; }
     }
 
-    /* === LOCATION === */
-    .location { padding: 0; background: var(--cream); }
-    .location__split { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
-    .location__img { position: relative; overflow: hidden; }
-    .location__img img { width: 100%; height: 100%; object-fit: cover; }
-    .location__content { padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center; background: var(--navy); color: var(--cream); position: relative; }
-    .location__content::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--coral); }
-    .location__content .eyebrow { background: var(--coral); }
-    .location__content h2 { color: var(--cream); margin-bottom: 1.5rem; }
-    .location__content h2 em { color: var(--mustard); }
-    .location__desc { color: rgba(251,246,234,.85); font-size: 1rem; line-height: 1.7; margin-bottom: 1.2rem; }
-    .location__desc--note { font-size: .85rem; color: rgba(251,246,234,.55); font-style: italic; }
-    .location__date {
-      display: flex; align-items: flex-start; gap: .85rem; padding: 1.1rem 1.25rem;
-      background: var(--coral); margin-top: 1.5rem;
+    /* === LOCATION (v3-style: full-bleed photo + caption row) === */
+    .location { padding: 0; background: var(--bg); }
+    .location__photo { width: 100%; height: 70svh; max-height: 700px; min-height: 480px; position: relative; overflow: hidden; }
+    .location__photo img { width: 100%; height: 100%; object-fit: cover; }
+    .location__photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(20,28,26,.62) 100%); }
+    .location__overlay {
+      position: absolute; bottom: 3rem; left: 0; right: 0; z-index: 1;
+      max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+      color: #fff;
     }
-    .location__date-ico { color: var(--cream); flex-shrink: 0; margin-top: 1px; }
-    .location__date-txt { font-family: var(--fd); font-size: 1.05rem; font-weight: 700; color: var(--cream); letter-spacing: -.01em; }
-    .location__date-txt span { display: block; font-family: var(--fd); font-size: .76rem; color: rgba(251,246,234,.85); margin-top: .25rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+    .location__overlay-meta {
+      font-family: var(--fb); font-size: .72rem; font-weight: 700;
+      letter-spacing: .3em; text-transform: uppercase;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 14px rgba(0,0,0,.7);
+    }
+    .location__overlay h2 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      color: #fff;
+      text-shadow: 0 4px 26px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.5);
+    }
+    .location__overlay h2 em { font-style: italic; color: var(--sun); }
+    .location__caption {
+      padding: 4rem 1.5rem; max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem;
+    }
+    .location__caption-meta {
+      font-family: var(--fb); font-size: .72rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+    }
+    .location__caption-meta div { margin-bottom: 1.4rem; }
+    .location__caption-meta strong {
+      display: block; font-family: var(--fd); font-size: 1.4rem;
+      font-weight: 400; color: var(--text);
+      letter-spacing: 0; text-transform: none;
+      margin-top: .35rem; font-style: italic;
+    }
+    .location__caption-text p { font-size: 1.05rem; color: var(--text-2); line-height: 1.7; margin-bottom: 1.25rem; }
+    .location__caption-text p:last-child { font-size: .85rem; color: var(--muted); font-style: italic; }
 
-    @media (max-width: 900px) {
-      .location__split { grid-template-columns: 1fr; }
-      .location__img { height: 280px; }
-      .location__content { padding: 3rem 1.5rem; }
+    @media (max-width: 768px) {
+      .location__photo { height: 55svh; min-height: 380px; }
+      .location__overlay { bottom: 2rem; padding: 0 1.25rem; }
+      .location__caption { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.25rem; }
     }
 
     /* === PRICING === */
-    .pricing { background: var(--cream-2); }
-    .pricing__inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .pricing__top { max-width: 760px; margin: 0 auto 4rem; text-align: center; }
-    .pricing__top h2 em { color: var(--coral); }
-    .pricing__sub { font-size: 1.1rem; color: var(--navy-soft); margin-top: 1rem; line-height: 1.6; font-weight: 500; }
-
-    .pricing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 920px; margin: 0 auto; align-items: stretch; }
-    .pcard {
-      padding: 2.75rem 2.25rem; background: var(--surface); border: 2px solid var(--navy);
-      position: relative; transition: all var(--tb); display: flex; flex-direction: column;
-    }
-    .pcard:hover { transform: translateY(-4px); }
-    .pcard--top { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+    .pricing { background: var(--mint); position: relative; overflow: hidden; }
+    .pricing::before { content: ''; position: absolute; top: 50px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(195,222,184,.6); filter: blur(80px); pointer-events: none; }
+    .pricing::after { content: ''; position: absolute; bottom: 50px; right: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(252,205,185,.5); filter: blur(80px); pointer-events: none; }
+    .pricing__hdr { text-align: center; max-width: 680px; margin: 0 auto 4rem; position: relative; z-index: 1; }
+    .pricing__hdr h2 em { color: var(--coral); }
+    .pricing__sub { color: var(--text-2); margin-top: 1rem; font-size: 1.05rem; }
+    .pricing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 920px; margin: 0 auto; align-items: stretch; position: relative; z-index: 1; }
+    .pcard { padding: 2.75rem 2.25rem; background: var(--surface); border-radius: var(--r-lg); position: relative; transition: all var(--tb); display: flex; flex-direction: column; box-shadow: var(--sh-sm); }
+    .pcard:hover { transform: translateY(-6px); box-shadow: var(--sh-lg); }
+    .pcard--top { background: var(--text); color: var(--cream); }
     .pcard--top h3, .pcard--top .pcard__amount { color: var(--cream); }
-
     .pcard__badge {
-      position: absolute; top: -16px; left: 1.75rem;
-      padding: .55rem 1.1rem; background: var(--coral); color: var(--cream);
-      font-family: var(--fd); font-size: .68rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
+      position: absolute; top: -14px; left: 2rem;
+      padding: .4rem 1.1rem; background: var(--coral); color: #fff;
+      font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+      border-radius: var(--r-pill); box-shadow: var(--sh-sm);
     }
+    .pcard__name { font-family: var(--fd); font-size: 1.2rem; color: var(--coral); margin-bottom: 1.25rem; font-weight: 400; }
+    .pcard--top .pcard__name { color: var(--peach-2); }
+    .pcard__price { display: flex; align-items: baseline; gap: .35rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .pcard--top .pcard__price { border-bottom-color: rgba(253,246,236,.15); }
+    .pcard__amount { font-family: var(--fd); font-size: 3rem; line-height: 1; letter-spacing: -.02em; font-weight: 400; }
+    .pcard__cur { font-size: 1.3rem; color: var(--muted); font-weight: 500; }
+    .pcard--top .pcard__cur { color: rgba(253,246,236,.6); }
 
-    .pcard__name { font-family: var(--fd); font-size: .76rem; font-weight: 800; letter-spacing: .25em; text-transform: uppercase; color: var(--coral); margin-bottom: 1.5rem; }
-    .pcard--top .pcard__name { color: var(--mustard); }
+    .pcard__feats { list-style: none; margin-bottom: 1.75rem; flex: 1; }
+    .pcard__feat { display: flex; gap: .8rem; align-items: flex-start; padding: .75rem 0; font-size: .94rem; color: var(--text-2); line-height: 1.5; font-weight: 500; }
+    .pcard--top .pcard__feat { color: rgba(253,246,236,.92); }
+    .pcard__feat-check { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--mint); color: var(--forest); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .pcard--top .pcard__feat-check { background: var(--coral); color: #fff; }
+    .pcard__note { font-size: .82rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .pcard--top .pcard__note { color: rgba(253,246,236,.55); }
+    .pcard--top .btn--primary { background: var(--cream); color: var(--text); border-color: var(--cream); box-shadow: none; }
+    .pcard--top .btn--primary:hover { background: var(--coral); color: #fff; border-color: var(--coral); }
 
-    .pcard__price { display: flex; align-items: baseline; gap: .35rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--navy); }
-    .pcard--top .pcard__price { border-bottom-color: var(--coral); }
-    .pcard__amount { font-family: var(--fd); font-weight: 900; font-size: clamp(2.6rem, 4.5vw, 3.6rem); line-height: 1; letter-spacing: -.05em; }
-    .pcard__cur { font-family: var(--fd); font-weight: 700; font-size: 1.3rem; color: var(--navy-soft); margin-left: .35rem; }
-    .pcard--top .pcard__cur { color: rgba(251,246,234,.6); }
-
-    .pcard__feats { list-style: none; margin-bottom: 2rem; flex: 1; }
-    .pcard__feat { display: flex; gap: .85rem; align-items: flex-start; padding: .8rem 0; font-size: .94rem; color: var(--navy); line-height: 1.5; font-weight: 500; border-bottom: 1px solid var(--border); }
-    .pcard__feat:last-child { border-bottom: none; }
-    .pcard--top .pcard__feat { color: rgba(251,246,234,.92); border-bottom-color: rgba(251,246,234,.12); }
-    .pcard__feat-check { flex-shrink: 0; width: 22px; height: 22px; background: var(--coral); color: var(--cream); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
-    .pcard--top .pcard__feat-check { background: var(--mustard); color: var(--navy); }
-
-    .pcard__note { font-size: .8rem; color: var(--navy-soft); font-style: italic; margin-bottom: 1.5rem; }
-    .pcard--top .pcard__note { color: rgba(251,246,234,.55); }
-
-    .pcard .btn { width: 100%; }
-    .pcard--top .btn--navy { background: var(--coral); border-color: var(--coral); }
-    .pcard--top .btn--navy:hover { background: var(--mustard); border-color: var(--mustard); color: var(--navy); }
-
-    .pricing__footnote { text-align: center; max-width: 600px; margin: 3rem auto 0; font-size: .92rem; color: var(--navy-soft); line-height: 1.7; font-weight: 500; }
+    .pricing__footnote { text-align: center; max-width: 600px; margin: 3rem auto 0; font-size: .92rem; color: var(--text-2); line-height: 1.7; position: relative; z-index: 1; }
 
     @media (max-width: 720px) { .pricing__grid { grid-template-columns: 1fr; } }
 
     /* === FAQ === */
-    .faq { background: var(--surface); border-top: 2px solid var(--navy); }
-    .faq__inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .faq__top { max-width: 760px; margin: 0 auto 3rem; text-align: center; }
-    .faq__top h2 em { color: var(--coral); }
-
-    .faq__list { max-width: 880px; margin: 0 auto; border-top: 2px solid var(--navy); }
-    .faq__item { border-bottom: 1px solid var(--border); transition: background var(--tb); }
+    .faq { background: var(--bg); }
+    .faq__hdr { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
+    .faq__hdr h2 em { color: var(--coral); }
+    .faq__list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: .8rem; }
+    .faq__item { background: var(--surface); border-radius: var(--r-md); transition: all var(--tb); box-shadow: var(--sh-sm); }
+    .faq__item:hover { box-shadow: var(--sh-md); }
     .faq__item.open { background: var(--cream-2); }
     .faq__q {
-      display: grid; grid-template-columns: 50px 1fr 36px; gap: 1.5rem; align-items: center;
-      padding: 1.6rem 0; background: none; border: none; cursor: pointer;
-      text-align: left; width: 100%; transition: padding var(--tb);
+      display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
+      padding: 1.5rem 1.85rem; background: none; border: none; cursor: pointer;
+      text-align: left; width: 100%; color: var(--text);
+      font-family: var(--fd); font-size: 1.15rem; font-weight: 400; line-height: 1.4;
+      transition: color var(--tf);
     }
-    .faq__q:hover { padding-left: 1rem; padding-right: 1rem; }
-    .faq__num { font-family: var(--fd); font-size: 1.3rem; font-weight: 900; color: var(--coral); letter-spacing: -.04em; }
-    .faq__qtxt { font-family: var(--fd); font-size: 1.18rem; font-weight: 700; line-height: 1.35; color: var(--navy); letter-spacing: -.025em; }
-    .faq__ico { width: 36px; height: 36px; background: var(--mustard-soft); color: var(--coral); display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-size: 1.4rem; font-weight: 700; transition: all var(--tb); }
-    .faq__item.open .faq__ico { transform: rotate(45deg); background: var(--coral); color: var(--cream); }
-    .faq__a { max-height: 0; overflow: hidden; transition: max-height .4s ease; padding: 0 0 0 calc(50px + 1.5rem); }
+    .faq__q:hover { color: var(--coral); }
+    .faq__ico {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+      background: var(--mint); color: var(--forest);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; transition: transform var(--tb), background var(--tb), color var(--tb); font-weight: 400;
+    }
+    .faq__item.open .faq__ico { transform: rotate(45deg); background: var(--coral); color: #fff; }
+    .faq__a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
     .faq__a.open { max-height: 400px; }
-    .faq__a p { padding: 0 0 1.6rem; color: var(--navy-soft); font-size: 1rem; line-height: 1.7; }
-
-    @media (max-width: 640px) {
-      .faq__q { grid-template-columns: 32px 1fr 30px; gap: 1rem; }
-      .faq__num { font-size: 1.1rem; }
-      .faq__qtxt { font-size: 1rem; }
-      .faq__a { padding-left: calc(32px + 1rem); }
-    }
+    .faq__a p { padding: 0 1.85rem 1.5rem; color: var(--text-2); font-size: .96rem; line-height: 1.7; font-weight: 400; }
 
     /* === FCTA === */
-    .fcta { padding: 8rem 0; background: var(--coral); color: var(--cream); text-align: center; position: relative; overflow: hidden; }
+    .fcta { padding: 7rem 0; background: var(--coral); color: #fff; text-align: center; position: relative; overflow: hidden; }
     .fcta::before {
       content: ''; position: absolute; width: 600px; height: 600px;
-      border-radius: 50%; background: var(--mustard); opacity: .2; filter: blur(80px);
+      border-radius: 50%; background: rgba(255,255,255,.15); filter: blur(80px);
       top: -300px; left: -200px;
     }
     .fcta::after {
       content: ''; position: absolute; width: 500px; height: 500px;
-      border-radius: 50%; background: var(--navy); opacity: .25; filter: blur(80px);
+      border-radius: 50%; background: rgba(244,162,97,.4); filter: blur(80px);
       bottom: -250px; right: -150px;
     }
-    .fcta__inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+    .fcta__inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
     .fcta__pill {
       display: inline-flex; align-items: center; gap: .55rem;
-      padding: .55rem 1.1rem; background: var(--navy); color: var(--mustard);
-      font-family: var(--fd); font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-      margin-bottom: 2rem;
+      padding: .55rem 1.15rem; background: rgba(255,255,255,.15); border-radius: var(--r-pill);
+      font-size: .85rem; font-weight: 600; margin-bottom: 1.5rem;
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
     }
-    .fcta__pill::before { content: ''; width: 8px; height: 8px; background: var(--mustard); }
-    .fcta h2 { color: var(--cream); margin-bottom: 1.5rem; font-size: clamp(2.6rem, 6vw, 5rem); }
-    .fcta h2 em { color: var(--mustard); }
-    .fcta__txt { font-family: var(--fd); font-weight: 600; font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.4; color: rgba(251,246,234,.92); margin-bottom: 3rem; letter-spacing: -.02em; }
-    .fcta .btn--cream:hover { background: var(--navy); color: var(--cream); border-color: var(--navy); }
-    .fcta__sub { margin-top: 1.5rem; font-size: .85rem; color: rgba(251,246,234,.7); }
+    .fcta__pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulse 2s ease-in-out infinite; }
+    .fcta h2 { color: #fff; margin-bottom: 1.25rem; }
+    .fcta h2 em { color: var(--peach); }
+    .fcta__txt { font-size: 1.12rem; color: rgba(255,255,255,.9); line-height: 1.7; margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .fcta__sub { margin-top: 1.5rem; font-size: .88rem; color: rgba(255,255,255,.7); }
 
     /* === FOOTER === */
-    .footer { background: var(--navy); color: var(--cream); padding: 3rem 0 2rem; }
-    .footer__row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .footer__brand { display: flex; align-items: center; gap: .75rem; }
-    .footer__brand img { width: 32px; height: 32px; }
-    .footer__brand-txt { font-family: var(--fd); font-size: 1.05rem; font-weight: 800; letter-spacing: -.025em; }
+    .footer { background: var(--bg); padding: 3rem 0 2rem; border-top: 1px solid var(--border); }
+    .footer__row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; }
+    .footer__brand { display: flex; align-items: center; gap: .65rem; transition: opacity var(--tf); }
+    .footer__brand:hover { opacity: .75; }
+    .footer__brand img { width: 30px; height: 30px; flex-shrink: 0; }
+    .footer__brand-txt { font-family: var(--fb); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; line-height: 1.2; }
     .footer__mid { text-align: center; }
-    .footer__site { font-family: var(--fd); font-size: 1rem; color: var(--coral); font-weight: 700; }
-    .footer__copy { font-family: var(--fd); font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(251,246,234,.55); margin-top: .5rem; font-weight: 600; }
-    .footer__contact { text-align: right; font-family: var(--fd); font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(251,246,234,.55); font-weight: 600; }
-    .footer__contact span { display: block; font-family: var(--fd); font-size: 1rem; color: var(--mustard); margin-top: .35rem; letter-spacing: -.01em; text-transform: none; font-weight: 700; }
-    .footer__disclaimer {
-      grid-column: 1 / -1; padding-top: 2rem; margin-top: 2.5rem; border-top: 1px solid rgba(251,246,234,.15);
-      text-align: center; font-size: .78rem; color: rgba(251,246,234,.55); font-style: italic;
-      max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;
-    }
+    .footer__site { font-size: .9rem; color: var(--coral); font-weight: 600; transition: color var(--tf); display: inline-block; }
+    .footer__site:hover { color: var(--coral-hi); text-decoration: underline; }
+    .footer__copy { font-size: .76rem; color: var(--muted); margin-top: .35rem; }
+    .footer__contact { text-align: right; }
+    .footer__contact-lbl { font-size: .76rem; color: var(--muted); font-weight: 600; }
+    .footer__contact-val { font-size: .9rem; color: var(--coral); margin-top: .25rem; font-weight: 600; }
+    .footer__disclaimer { grid-column: 1 / -1; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-size: .82rem; color: var(--muted); max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
     @media (max-width: 640px) {
       .footer__row { grid-template-columns: 1fr; text-align: center; }
@@ -626,34 +559,28 @@
     /* === MOBILE MISC === */
     @media (max-width: 768px) {
       section { padding: 4.5rem 0; }
-      .hero { padding: 3rem 0; }
-      .wrap { padding: 0 1.25rem; }
-      .wrap--sm { padding: 0 1.25rem; }
+      .hero { padding: 6rem 0 3rem; }
+      .live__card { padding: 2.5rem 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .wrap { padding: 0 1rem; }
+      .wrap--sm { padding: 0 1rem; }
+      .hdr { left: .5rem; right: .5rem; }
     }
 
     /* === UTILITY === */
     .sp { height: 1.5rem; }
-    .secnum--mustard { color: var(--mustard); }
-    .secnum--c { justify-content: center; }
+    .mb-15 { margin-bottom: 1.5rem; }
   </style>
 </head>
 <body>
 
-<!-- ===== MASTHEAD ===== -->
-<div class="mast">
-  <div class="mast__inner">
-    <div>№ 01 · 2026</div>
-    <div class="mast__center">Закрытый ВИП-интенсив</div>
-    <div class="mast__right">До 20 участников</div>
-  </div>
-</div>
-
 <!-- ===== HEADER ===== -->
 <header class="hdr" id="hdr">
   <div class="hdr__inner">
-    <a href="#" class="hdr__logo">
-      <img src="assets/logo.png" alt="">
-      <span class="hdr__logo-txt">Светлов</span>
+    <a href="https://svetlov.academy/" class="hdr__logo" target="_blank" rel="noopener noreferrer">
+      <img src="assets/logo.png" alt="Академия Развития Человека">
+      <span class="hdr__logo-txt">Академия<br>Развития<br>Человека</span>
     </a>
     <nav class="hdr__nav" id="nav">
       <a href="#story">История</a>
@@ -663,7 +590,7 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="hdr__cta">
-      <a href="#pricing">Забронировать</a>
+      <a href="#pricing" class="btn btn--primary">Забронировать</a>
     </div>
     <button type="button" class="hdr__burger" id="burger" aria-label="Меню" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -673,40 +600,32 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="home">
-  <div class="wrap">
-    <div class="hero__inner">
-      <div class="hero__text">
-        <div class="hero__pre">22–31 мая 2026 · Каслинская слобода</div>
-        <h1>Сила. Энергия. <em>Возрождение.</em></h1>
-        <p class="hero__sub">Закрытый ВИП-интенсив для мужчин 40+. Десять дней с Заслуженным Целителем России — чтобы вернуть тело, энергию и смысл. До того, как это сделает болезнь.</p>
-        <div class="hero__meta">
-          <div class="hero__meta-item">
-            <div class="hero__meta-lbl">Где</div>
-            <div class="hero__meta-val">Каслинская<br>слобода</div>
-          </div>
-          <div class="hero__meta-item">
-            <div class="hero__meta-lbl">Сколько</div>
-            <div class="hero__meta-val">10 дней<br>трансформации</div>
-          </div>
-          <div class="hero__meta-item">
-            <div class="hero__meta-lbl">Свободно</div>
-            <div class="hero__meta-val hero__meta-val--hi"><span id="seatsHero">20</span> из 20<br>мест</div>
-          </div>
-        </div>
-        <div class="hero__actions">
-          <a href="#pricing" class="btn btn--primary btn--lg">Забронировать <span class="btn__arrow">→</span></a>
-          <a href="#program" class="btn btn--outline btn--lg">Смотреть программу</a>
-        </div>
-        <p class="hero__note">Семинар начинается 22 мая 2026 · Место закрепляется после предоплаты</p>
+  <div class="hero__bg">
+    <img src="assets/photos/hero-bg.png" alt="" loading="eager">
+  </div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__pre">Закрытый ВИП-интенсив · 22–31 мая 2026</div>
+      <h1 class="hero__title">Сила. Энергия.<br><em>Возрождение.</em></h1>
+      <p class="hero__sub">Десять дней на лоне Урала с Заслуженным Целителем России. Для мужчин, которые готовы вернуть тело, энергию и смысл.</p>
+      <div class="hero__line"></div>
+      <div class="hero__cta">
+        <a href="#pricing" class="btn btn--primary btn--lg">Забронировать место <span class="btn__arrow">→</span></a>
       </div>
-
-      <div class="hero__visual">
-        <div class="hero__photo">
-          <img src="assets/photos/location.png" alt="Природа Урала" loading="eager">
-        </div>
-        <div class="hero__tag">Заслуженный целитель</div>
-        <div class="hero__tag-2">35+ лет практики</div>
-      </div>
+    </div>
+  </div>
+  <div class="hero__bottom">
+    <div class="hero__meta">
+      <div class="hero__meta-lbl">Где</div>
+      <div class="hero__meta-val">Каслинская слобода</div>
+    </div>
+    <div class="hero__meta">
+      <div class="hero__meta-lbl">Когда</div>
+      <div class="hero__meta-val">22–31 мая 2026</div>
+    </div>
+    <div class="hero__meta">
+      <div class="hero__meta-lbl">Свободно</div>
+      <div class="hero__meta-val"><span id="seatsHero">20</span> из 20 мест</div>
     </div>
   </div>
 </section>
@@ -715,25 +634,46 @@
 <section class="pain" id="pain">
   <div class="wrap">
     <div class="pain__hdr">
-      <div class="secnum"><span class="secnum__digit">01</span><span class="secnum__rule"></span><span>Узнаёте себя?</span></div>
+      <div class="eyebrow eyebrow--peach">Узнаёте себя?</div>
       <h2>Это про <em>вас</em>?</h2>
-      <p class="pain__lede">Успешные мужчины пропускают момент, когда тело начинает сдаваться. Списывают усталость на возраст, боль — на стресс. Если хотя бы три пункта отзываются — этот интенсив создан именно для вас.</p>
+      <p class="pain__lede">Успешные мужчины пропускают момент, когда тело начинает сдаваться. Если хотя бы три пункта отзываются — этот интенсив создан именно для вас.</p>
     </div>
-
     <div class="pain__grid">
-      <div class="pain__item au"><span class="pain__num">01</span><span class="pain__txt">Энергии хватает на работу — но не на себя и семью</span></div>
-      <div class="pain__item au d1"><span class="pain__num">02</span><span class="pain__txt">Хроническая усталость стала нормой</span></div>
-      <div class="pain__item au d2"><span class="pain__num">03</span><span class="pain__txt">Что-то болит постоянно, но «некогда разбираться»</span></div>
-      <div class="pain__item au d1"><span class="pain__num">04</span><span class="pain__txt">Чувствуете, что тело даёт сбои, но анализы «в норме»</span></div>
-      <div class="pain__item au d2"><span class="pain__num">05</span><span class="pain__txt">Либидо и мужская сила уже не те, что в 35</span></div>
-      <div class="pain__item au d3"><span class="pain__num">06</span><span class="pain__txt">Внутри ощущение: «Лучшее уже позади»</span></div>
-      <div class="pain__item au d2"><span class="pain__num">07</span><span class="pain__txt">Нет ощущения радости и азарта от жизни</span></div>
-      <div class="pain__item au d3"><span class="pain__num">08</span><span class="pain__txt">Боитесь, что тело однажды скажет «стоп»</span></div>
+      <div class="pain__card au">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Энергии хватает на работу — но не на себя и семью</span>
+      </div>
+      <div class="pain__card au d1">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Хроническая усталость стала нормой</span>
+      </div>
+      <div class="pain__card au d2">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Что-то болит постоянно, но «некогда разбираться»</span>
+      </div>
+      <div class="pain__card au d1">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Чувствуете, что тело даёт сбои, но анализы «в норме»</span>
+      </div>
+      <div class="pain__card au d2">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Либидо и мужская сила уже не те, что в 35</span>
+      </div>
+      <div class="pain__card au d3">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Внутри ощущение: «Лучшее уже позади»</span>
+      </div>
+      <div class="pain__card au d2">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Нет ощущения радости и азарта от жизни</span>
+      </div>
+      <div class="pain__card au d3">
+        <div class="pain__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <span class="pain__txt">Боитесь, что тело однажды скажет «стоп»</span>
+      </div>
     </div>
-
     <div class="pain__close au">
-      <strong>Не ждите диагноза.</strong>
-      <p>Этот интенсив — точка, где можно развернуть курс. Успешные мужчины чаще всего пропускают именно её.</p>
+      <p><strong>Не ждите диагноза.</strong>Этот интенсив — точка, где можно развернуть курс. Успешные мужчины чаще всего пропускают именно её.</p>
     </div>
   </div>
 </section>
@@ -746,28 +686,26 @@
         <div class="story__photo">
           <img src="assets/photos/vertniakov.jpg" alt="Андрей Вертняков" loading="lazy">
         </div>
-        <div class="story__cap">
-          <div class="story__cap-name">Андрей Вертняков</div>
-          <div class="story__cap-meta">52 года · Нефтегазальянск</div>
+        <div class="story__badge">
+          <div class="story__badge-name">Андрей Вертняков</div>
+          <div class="story__badge-role">52 года · Нефтегазальянск</div>
         </div>
-        <div class="story__cap-note">
-          <svg class="story__cap-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div class="story__note">
+          <svg class="story__note-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           Будет на семинаре лично — задайте любой вопрос
         </div>
       </div>
       <div>
-        <div class="secnum"><span class="secnum__digit">02</span><span class="secnum__rule"></span><span>Реальная история</span></div>
+        <div class="eyebrow eyebrow--peach">Реальная история</div>
         <h2>От онкологии<br>к <em>осознанной жизни</em></h2>
         <div class="sp"></div>
-        <div class="story__text">
-          <p class="au d1">Ровно 5 лет назад моя жизнь кардинально изменилась. В канун Нового года мне поставили диагноз «онкология» с незамедлительной рекомендацией на химиотерапию. Врач сказал прямо: «Жить сможешь, но с трубкой».</p>
-          <p class="au d2">На первой же химиотерапии я понял, что меня медленно и верно убивают. <strong>Тогда ко мне пришло предложение познакомиться с удивительным человеком — Заслуженным Целителем России.</strong></p>
-          <p class="au d2">Для встречи нужно было поехать в тайгу — на мужские сборы, на лыжах, с ночёвкой в снежных берлогах, рыбалкой при −35°. Я сбежал от врачей и поехал. Та встреча изменила мою жизнь.</p>
-          <p class="au d3">За три года я не только выздоровел, но и сам стал Мастером Академии Развития Человека. <strong>Болезнь пришла в 47. Мне сейчас 52. И это лучший период моей жизни.</strong></p>
-        </div>
+        <p class="story__p au d1">Ровно 5 лет назад моя жизнь кардинально изменилась. В канун Нового года мне поставили диагноз «онкология» с незамедлительной рекомендацией на химиотерапию. Врач сказал прямо: «Жить сможешь, но с трубкой».</p>
+        <p class="story__p au d2">На первой же химиотерапии я понял, что меня медленно и верно убивают. <span class="story__p--hi">Тогда ко мне пришло предложение познакомиться с удивительным человеком — Заслуженным Целителем России.</span></p>
+        <p class="story__p au d2">Для встречи нужно было поехать в тайгу — на мужские сборы, на лыжах, с ночёвкой в снежных берлогах, рыбалкой при −35. Я сбежал от врачей и поехал. Та встреча изменила мою жизнь.</p>
+        <p class="story__p au d3">За три года я не только выздоровел, но и сам стал Мастером Академии Развития Человека. <span class="story__p--hi">Болезнь пришла в 47. Мне сейчас 52. И это лучший период моей жизни.</span></p>
         <blockquote class="story__quote au d3">
           <p>«Я благодарю Бога за болезнь — именно она стала отправной точкой знакомства с Учителем Владимиром Юрьевичем Светловым и моим путём осознанной жизни.»</p>
-          <cite>— Андрей Вертняков, Мастер Академии</cite>
+          <cite>— Андрей Вертняков, Мастер Академии Развития Человека</cite>
         </blockquote>
       </div>
     </div>
@@ -778,61 +716,50 @@
 <section class="parable">
   <div class="parable__inner">
     <div class="parable__hdr">
-      <div class="secnum secnum--mustard"><span class="secnum__digit">03</span><span class="secnum__rule"></span><span>Притча об Орле</span></div>
+      <div class="eyebrow">Притча об Орле</div>
       <h2>Почему обновление<br>требует <em>смелости</em></h2>
     </div>
-    <div class="parable__body">
-      <p>Орёл живёт до 70 лет. Но в 40 лет он оказывается перед выбором. К этому времени его когти теряют гибкость — он уже не может крепко схватить добычу. Клюв становится длинным и изогнутым, мешает есть. Перья тяжелеют и прилипают к груди, делая полёт мучительным.</p>
-      <p><strong>У орла два пути: умереть — или пройти мучительное обновление.</strong></p>
-      <p>Если он выбирает жизнь — улетает в горы, в одиночество. Там бьёт клювом о камень, пока не сломает его. Ждёт, пока вырастет новый. Потом вырывает когти — один за другим. Ждёт новых. Потом вырывает старые тяжёлые перья.</p>
-      <p>Это занимает 150 дней. Боль невыносима.</p>
-      <p><strong>Но потом — орёл взлетает заново. С новым клювом. Новыми когтями. Новыми перьями. И живёт ещё 30 лет — в силе, в скорости, в величии.</strong></p>
-      <p>Не каждый готов сломать старый клюв. Но именно это и отличает орла от птицы, которая просто доживает.</p>
-
-      <div class="parable__final">
-        <p>Владимир Светлов помогает мужчинам пройти этот путь.</p>
-        <p>Не через боль потери — а через силу осознанного выбора.</p>
-      </div>
+    <p class="parable__p au d1">Орёл живёт до 70 лет. Но в 40 лет он оказывается перед выбором. К этому времени его когти теряют гибкость, клюв становится длинным и изогнутым, перья тяжелеют и прилипают к груди.</p>
+    <p class="parable__p au d1"><span class="parable__p--hi">У орла два пути: умереть — или пройти мучительное обновление.</span></p>
+    <p class="parable__p au d2">Если он выбирает жизнь — улетает в горы, в одиночество. Бьёт клювом о камень, пока не сломает его. Вырывает старые когти. Потом старые тяжёлые перья. Это занимает 150 дней. Боль невыносима.</p>
+    <p class="parable__p au d3"><span class="parable__p--hi">Но потом — орёл взлетает заново. С новым клювом. Новыми когтями. И живёт ещё 30 лет — в силе, в скорости, в величии.</span></p>
+    <p class="parable__p au d3">Не каждый готов сломать старый клюв. Но именно это и отличает орла от птицы, которая просто доживает.</p>
+    <div class="parable__final au d4">
+      <p>Владимир Светлов помогает мужчинам пройти этот путь.</p>
+      <p>Не через боль потери — а через силу осознанного выбора.</p>
     </div>
   </div>
 </section>
 
 <!-- ===== ВЕДУЩИЙ ===== -->
 <section class="leader" id="leader">
-  <div class="leader__inner">
-    <div class="leader__top">
-      <div class="secnum"><span class="secnum__digit">04</span><span class="secnum__rule"></span><span>Ведущий интенсива</span></div>
-      <h2>Владимир<br><em>Светлов</em></h2>
-    </div>
-
+  <div class="wrap">
     <div class="leader__grid">
-      <div class="leader__photo-wrap au">
-        <div class="leader__photo">
-          <img src="assets/photos/svetlov.jpg" alt="Светлов Владимир Юрьевич" loading="lazy">
-        </div>
-        <div class="leader__caption">
-          <div class="leader__caption-name">Светлов Владимир Юрьевич</div>
-          <div class="leader__caption-role">Президент Академии</div>
-        </div>
+      <div class="leader__photo au">
+        <img src="assets/photos/svetlov.jpg" alt="Светлов Владимир Юрьевич" loading="lazy">
       </div>
-
       <div>
-        <p class="leader__intro">«Мужская сила — это не таблетки и не операции. Это законы природы, которые мы когда-то забыли. Я помогаю мужчинам вспомнить их заново.»</p>
-
+        <div class="eyebrow eyebrow--cream">Ведущий интенсива</div>
+        <div class="leader__hdr">
+          <h2>Владимир<br><em>Светлов</em></h2>
+        </div>
+        <div class="leader__name-card">
+          <div class="leader__name">Светлов Владимир Юрьевич</div>
+          <div class="leader__role">Президент Академии · Магистр народной медицины</div>
+        </div>
         <ul class="leader__creds">
-          <li class="leader__cred au"><span class="leader__cred-num">01</span>Президент Академии Развития Человека</li>
-          <li class="leader__cred au d1"><span class="leader__cred-num">02</span>Магистр народной медицины</li>
-          <li class="leader__cred au d1"><span class="leader__cred-num">03</span>Заслуженный Целитель России I степени</li>
-          <li class="leader__cred au d2"><span class="leader__cred-num">04</span>Профессиональный психолог-практик</li>
-          <li class="leader__cred au d2"><span class="leader__cred-num">05</span>Орден «Звезда Надежды»</li>
-          <li class="leader__cred au d3"><span class="leader__cred-num">06</span>Орден «Звезда Магистра»</li>
-          <li class="leader__cred au d3"><span class="leader__cred-num">07</span>35+ лет практики — Индия, Тибет, Перу</li>
-          <li class="leader__cred au d4"><span class="leader__cred-num">08</span>Тысячи выздоровевших учеников</li>
+          <li class="leader__cred au d1">Президент Академии Развития Человека</li>
+          <li class="leader__cred au d1">Магистр народной медицины</li>
+          <li class="leader__cred au d2">Заслуженный Целитель России I степени</li>
+          <li class="leader__cred au d2">Профессиональный психолог-практик</li>
+          <li class="leader__cred au d3">Орден «Звезда Надежды»</li>
+          <li class="leader__cred au d3">Орден «Звезда Магистра»</li>
+          <li class="leader__cred au d4">35+ лет практики — Индия, Тибет, Перу, Китай</li>
+          <li class="leader__cred au d4">Тысячи выздоровевших учеников</li>
         </ul>
-
         <blockquote class="leader__quote au d3">
-          <p>Мы живём в эпоху, когда мужчина забыл, что значит быть в силе. Не качаться в зале — а быть собранным внутри.</p>
-          <cite>— Из бесед с Учителем</cite>
+          <p>«Мужская сила — это не таблетки и не операции. Это законы природы, которые мы когда-то забыли. Я помогаю мужчинам вспомнить их заново.»</p>
+          <cite>— Владимир Светлов</cite>
         </blockquote>
       </div>
     </div>
@@ -841,56 +768,48 @@
 
 <!-- ===== ПРОГРАММА ===== -->
 <section class="program" id="program">
-  <div class="program__inner">
-    <div class="secnum"><span class="secnum__digit">05</span><span class="secnum__rule"></span><span>Программа</span></div>
-
-    <div class="program__top">
-      <div>
-        <h2>Десять дней.<br><em>Один путь.</em></h2>
-      </div>
-      <div class="program__top-meta">
-        Даты проведения<span>22–31 мая 2026</span>
-      </div>
+  <div class="wrap">
+    <div class="program__hdr">
+      <div class="eyebrow">10 дней трансформации</div>
+      <h2>Программа <em>интенсива</em></h2>
+      <p class="program__sub">22–31 мая 2026 · Эко-поселение Каслинская слобода</p>
     </div>
-
-    <ul class="program__list">
-      <li class="program__row au"><span class="program__row-num">01</span><span class="program__row-title">Диагностика состояния. Понимание своего тела и энергетики</span><span class="program__row-day">День 1</span></li>
-      <li class="program__row au d1"><span class="program__row-num">02</span><span class="program__row-title">Мужские ресурсы: откуда берётся и куда уходит сила</span><span class="program__row-day">День 2</span></li>
-      <li class="program__row au d1"><span class="program__row-num">03</span><span class="program__row-title">Работа с болью и хроническими состояниями</span><span class="program__row-day">День 3</span></li>
-      <li class="program__row au d2"><span class="program__row-num">04</span><span class="program__row-title">Психосоматика: как психика управляет телом</span><span class="program__row-day">День 4</span></li>
-      <li class="program__row au d2"><span class="program__row-num">05</span><span class="program__row-title">Мужское либидо и гормональный баланс</span><span class="program__row-day">День 5</span></li>
-      <li class="program__row au d3"><span class="program__row-num">06</span><span class="program__row-title">Энергетические практики. Утренние и вечерние ритуалы</span><span class="program__row-day">День 6</span></li>
-      <li class="program__row au d3"><span class="program__row-num">07</span><span class="program__row-title">Мужское предназначение и смысл. Работа с подсознанием</span><span class="program__row-day">День 7</span></li>
-      <li class="program__row au d4"><span class="program__row-num">08</span><span class="program__row-title">Отношения, семья, роль отца и мужа через призму здоровья</span><span class="program__row-day">День 8</span></li>
-      <li class="program__row au d4"><span class="program__row-num">09</span><span class="program__row-title">Интеграция. Личный план на год. Прощальный ритуал</span><span class="program__row-day">День 9</span></li>
-      <li class="program__row au d5"><span class="program__row-num">10</span><span class="program__row-title">Отъезд. Индивидуальные консультации</span><span class="program__row-day">День 10</span></li>
-    </ul>
-
-    <div class="program__note"><strong>Каждый день включает</strong> утренние практики на природе, групповую работу и индивидуальные сессии со Светловым.</div>
+    <div class="program__grid">
+      <div class="program__day au"><div class="program__num">1</div><div><div class="program__lbl">День первый</div><div class="program__title">Диагностика состояния. Понимание своего тела и энергетики</div></div></div>
+      <div class="program__day au d1"><div class="program__num">2</div><div><div class="program__lbl">День второй</div><div class="program__title">Мужские ресурсы: откуда берётся и куда уходит сила</div></div></div>
+      <div class="program__day au d2"><div class="program__num">3</div><div><div class="program__lbl">День третий</div><div class="program__title">Работа с болью и хроническими состояниями</div></div></div>
+      <div class="program__day au d1"><div class="program__num">4</div><div><div class="program__lbl">День четвёртый</div><div class="program__title">Психосоматика: как психика управляет телом</div></div></div>
+      <div class="program__day au d2"><div class="program__num">5</div><div><div class="program__lbl">День пятый</div><div class="program__title">Мужское либидо и гормональный баланс</div></div></div>
+      <div class="program__day au d3"><div class="program__num">6</div><div><div class="program__lbl">День шестой</div><div class="program__title">Энергетические практики. Утренние и вечерние ритуалы</div></div></div>
+      <div class="program__day au d2"><div class="program__num">7</div><div><div class="program__lbl">День седьмой</div><div class="program__title">Мужское предназначение и смысл. Работа с подсознанием</div></div></div>
+      <div class="program__day au d3"><div class="program__num">8</div><div><div class="program__lbl">День восьмой</div><div class="program__title">Отношения, семья, роль отца и мужа через призму здоровья</div></div></div>
+      <div class="program__day au d2"><div class="program__num">9</div><div><div class="program__lbl">День девятый</div><div class="program__title">Интеграция. Личный план на год. Прощальный ритуал</div></div></div>
+      <div class="program__day au d3"><div class="program__num">10</div><div><div class="program__lbl">День десятый</div><div class="program__title">Отъезд. Индивидуальные консультации</div></div></div>
+    </div>
+    <div class="program__note au"><strong>Каждый день включает</strong> утренние практики на природе, групповую работу и индивидуальные сессии со Светловым.</div>
   </div>
 </section>
 
 <!-- ===== РЕЗУЛЬТАТЫ ===== -->
 <section class="results" id="results">
-  <div class="results__inner">
-    <div class="results__top">
-      <div class="secnum"><span class="secnum__digit">06</span><span class="secnum__rule"></span><span>Что вы получите</span></div>
+  <div class="wrap">
+    <div class="results__hdr">
+      <div class="eyebrow eyebrow--peach">Что вы получите</div>
       <h2>Возвращение <em>к себе</em>.</h2>
     </div>
-
     <div class="results__grid">
       <div class="rcard rcard--1 au">
-        <div class="rcard__num">01</div>
+        <div class="rcard__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
         <h3 class="rcard__title">Тело</h3>
         <ul class="rcard__list">
-          <li class="rcard__item">Понимание причин хронических болей и состояний</li>
+          <li class="rcard__item">Понимание причин хронических болей</li>
           <li class="rcard__item">Природные методы восстановления без химии</li>
           <li class="rcard__item">Персональный протокол здоровья от Светлова</li>
           <li class="rcard__item">Практики, которые встраиваются в жизнь навсегда</li>
         </ul>
       </div>
       <div class="rcard rcard--2 au d2">
-        <div class="rcard__num">02</div>
+        <div class="rcard__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <h3 class="rcard__title">Психика</h3>
         <ul class="rcard__list">
           <li class="rcard__item">Освобождение от страхов и блоков</li>
@@ -900,7 +819,7 @@
         </ul>
       </div>
       <div class="rcard rcard--3 au d4">
-        <div class="rcard__num">03</div>
+        <div class="rcard__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg></div>
         <h3 class="rcard__title">Энергия и смысл</h3>
         <ul class="rcard__list">
           <li class="rcard__item">Возвращение мужской силы и либидо</li>
@@ -915,17 +834,17 @@
 
 <!-- ===== АНДРЕЙ НА СЕМИНАРЕ ===== -->
 <section class="live">
-  <div class="live__inner">
-    <div class="live__grid">
+  <div class="wrap">
+    <div class="live__card">
       <div class="live__col au">
-        <div class="secnum"><span class="secnum__digit">07</span><span class="secnum__rule"></span><span>Живой пример</span></div>
+        <div class="eyebrow eyebrow--cream">Живой пример рядом с вами</div>
         <h2>Андрей будет<br>на семинаре <em>лично</em></h2>
         <div class="sp"></div>
         <p>На этом интенсиве вы встретите Андрея Вертнякова лично.</p>
         <p><strong>Не в видео. Не в тексте.</strong> Живой человек, который прошёл путь от онкологии и химиотерапии — к здоровью, силе и новому смыслу жизни.</p>
         <p>Вы сможете задать ему любой вопрос. Услышать его историю из первых уст.</p>
         <div class="live__btn-wrap">
-          <a href="#pricing" class="btn btn--navy">Встретиться с Андреем <span class="btn__arrow">→</span></a>
+          <a href="#pricing" class="btn btn--primary">Встретиться с Андреем <span class="btn__arrow">→</span></a>
         </div>
       </div>
       <div class="au d2">
@@ -940,33 +859,37 @@
 
 <!-- ===== МЕСТО ===== -->
 <section class="location" id="location">
-  <div class="location__split">
-    <div class="location__img">
-      <img src="assets/photos/location.png" alt="Каслинская слобода" loading="lazy">
+  <div class="location__photo">
+    <img src="assets/photos/location.png" alt="Каслинская слобода" loading="lazy">
+    <div class="location__overlay">
+      <div class="location__overlay-meta">— Место силы —</div>
+      <h2>Каслинская <em>слобода</em></h2>
     </div>
-    <div class="location__content">
-      <div class="eyebrow">Место силы</div>
-      <h2>Эко-поселение<br><em>Каслинская слобода</em></h2>
-      <p class="location__desc">Интенсив проходит вдали от городского шума — в экологически чистом поселении, на лоне живой природы Урала.</p>
-      <p class="location__desc">Чистый воздух, вода, лес, тишина. Условия, в которых тело начинает восстанавливаться само — ещё до начала практик.</p>
-      <p class="location__desc location__desc--note">Проживание и питание организуется отдельно от стоимости курса.</p>
-      <div class="location__date">
-        <svg class="location__date-ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="4" width="18" height="18" rx="0"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <div class="location__date-txt">22–31 мая 2026 · 10 дней<span>До 20 участников</span></div>
-      </div>
+  </div>
+
+  <div class="location__caption">
+    <div class="location__caption-meta">
+      <div>Где<strong>Эко-поселение</strong></div>
+      <div>Когда<strong>22–31 мая 2026</strong></div>
+      <div>Сколько<strong>10 дней</strong></div>
+      <div>Участников<strong>До 20 человек</strong></div>
+    </div>
+    <div class="location__caption-text">
+      <p>Интенсив проходит вдали от городского шума — в экологически чистом поселении, на лоне живой природы Урала. Чистый воздух, вода, лес, тишина.</p>
+      <p>Условия, в которых тело начинает восстанавливаться само — ещё до начала практик. Это не «программа в отеле». Это возвращение в среду, в которой человек должен жить.</p>
+      <p>Проживание и питание организуется отдельно от стоимости курса. Мы помогаем с заселением.</p>
     </div>
   </div>
 </section>
 
 <!-- ===== ЦЕНЫ ===== -->
 <section class="pricing" id="pricing">
-  <div class="pricing__inner">
-    <div class="pricing__top">
-      <div class="secnum secnum--c"><span class="secnum__digit">08</span><span class="secnum__rule"></span><span>Стоимость</span></div>
-      <h2>Инвестиция <em>в себя</em>.</h2>
-      <p class="pricing__sub">Два формата участия. Возможна рассрочка по индивидуальной договорённости.</p>
+  <div class="wrap">
+    <div class="pricing__hdr">
+      <div class="eyebrow eyebrow--peach">Инвестиция в себя</div>
+      <h2>Стоимость <em>участия</em></h2>
+      <p class="pricing__sub">Два формата на выбор. Возможна рассрочка по индивидуальной договорённости.</p>
     </div>
-
     <div class="pricing__grid">
       <div class="pcard pcard--top au">
         <div class="pcard__badge">Максимальный</div>
@@ -984,9 +907,8 @@
           <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Сопровождение после семинара (3 мес.)</li>
         </ul>
         <p class="pcard__note">Проживание оплачивается отдельно</p>
-        <a href="#" class="btn btn--navy">Забронировать VIP MAX <span class="btn__arrow">→</span></a>
+        <a href="#" class="btn btn--primary btn--block">Забронировать VIP MAX <span class="btn__arrow">→</span></a>
       </div>
-
       <div class="pcard au d2">
         <div class="pcard__name">VIP СТАНДАРТ</div>
         <div class="pcard__price">
@@ -1000,49 +922,47 @@
           <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Закрытый чат выпускников</li>
         </ul>
         <p class="pcard__note">Проживание оплачивается отдельно</p>
-        <a href="#" class="btn btn--outline">Забронировать место <span class="btn__arrow">→</span></a>
+        <a href="#" class="btn btn--outline btn--block">Забронировать место <span class="btn__arrow">→</span></a>
       </div>
     </div>
-
     <p class="pricing__footnote">Семинар рассчитан на 20 человек. После заполнения мест запись закрывается.</p>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
 <section class="faq" id="faq">
-  <div class="faq__inner">
-    <div class="faq__top">
-      <div class="secnum secnum--c"><span class="secnum__digit">09</span><span class="secnum__rule"></span><span>FAQ</span></div>
+  <div class="wrap">
+    <div class="faq__hdr">
+      <div class="eyebrow">FAQ</div>
       <h2>Часто задаваемые <em>вопросы</em></h2>
     </div>
-
     <div class="faq__list">
       <div class="faq__item">
-        <button type="button" class="faq__q"><span class="faq__num">01</span><span class="faq__qtxt">Нужна ли специальная физическая подготовка?</span><span class="faq__ico">+</span></button>
+        <button type="button" class="faq__q">Нужна ли специальная физическая подготовка?<span class="faq__ico">+</span></button>
         <div class="faq__a"><p>Нет. Интенсив рассчитан на мужчин в любом физическом состоянии. Практики адаптируются индивидуально.</p></div>
       </div>
       <div class="faq__item">
-        <button type="button" class="faq__q"><span class="faq__num">02</span><span class="faq__qtxt">Что включено в стоимость тарифа?</span><span class="faq__ico">+</span></button>
+        <button type="button" class="faq__q">Что включено в стоимость тарифа?<span class="faq__ico">+</span></button>
         <div class="faq__a"><p>Участие в программе интенсива и работа со Светловым. Проживание и питание оплачиваются отдельно — мы помогаем организовать заселение.</p></div>
       </div>
       <div class="faq__item">
-        <button type="button" class="faq__q"><span class="faq__num">03</span><span class="faq__qtxt">Я не верю в «целительство» — это для меня?</span><span class="faq__ico">+</span></button>
+        <button type="button" class="faq__q">Я не верю в «целительство» — это для меня?<span class="faq__ico">+</span></button>
         <div class="faq__a"><p>Владимир Светлов работает на пересечении народной медицины, психосоматики и природных практик. Это не религия и не эзотерика в привычном смысле — это работа с реальными законами природы и психики.</p></div>
       </div>
       <div class="faq__item">
-        <button type="button" class="faq__q"><span class="faq__num">04</span><span class="faq__qtxt">Правда ли, что на семинаре будет Андрей Вертняков?</span><span class="faq__ico">+</span></button>
+        <button type="button" class="faq__q">Правда ли, что на семинаре будет Андрей Вертняков?<span class="faq__ico">+</span></button>
         <div class="faq__a"><p>Да. Андрей Вертняков — Мастер Академии и один из участников интенсива. Он будет присутствовать лично и готов делиться своим опытом выздоровления.</p></div>
       </div>
       <div class="faq__item">
-        <button type="button" class="faq__q"><span class="faq__num">05</span><span class="faq__qtxt">Как забронировать место?</span><span class="faq__ico">+</span></button>
+        <button type="button" class="faq__q">Как забронировать место?<span class="faq__ico">+</span></button>
         <div class="faq__a"><p>Нажмите кнопку «Забронировать» или напишите нам напрямую. Место закрепляется после внесения предоплаты.</p></div>
       </div>
       <div class="faq__item">
-        <button type="button" class="faq__q"><span class="faq__num">06</span><span class="faq__qtxt">Можно ли оплатить частями?</span><span class="faq__ico">+</span></button>
+        <button type="button" class="faq__q">Можно ли оплатить частями?<span class="faq__ico">+</span></button>
         <div class="faq__a"><p>Да, возможна рассрочка. Условия обсуждаются индивидуально.</p></div>
       </div>
       <div class="faq__item">
-        <button type="button" class="faq__q"><span class="faq__num">07</span><span class="faq__qtxt">Подходит ли это мужчинам старше 60?</span><span class="faq__ico">+</span></button>
+        <button type="button" class="faq__q">Подходит ли это мужчинам старше 60?<span class="faq__ico">+</span></button>
         <div class="faq__a"><p>Да. Программа разработана для мужчин 40–70 лет. Практики адаптируются под возраст и состояние здоровья каждого участника.</p></div>
       </div>
     </div>
@@ -1054,35 +974,41 @@
   <div class="fcta__inner">
     <div class="fcta__pill">Осталось <span id="seatsFinal">20</span> из 20 мест</div>
     <h2 class="au">Лучшее время было вчера.<br>Второе лучшее — <em>сейчас</em>.</h2>
-    <p class="fcta__txt au d1">Семинар начинается 22 мая 2026. Не ждите, пока тело само решит этот вопрос за вас.</p>
+    <p class="fcta__txt au d1">Семинар начинается 22 мая 2026.<br>Не ждите, пока тело само решит этот вопрос за вас.</p>
     <div class="au d2">
-      <a href="#pricing" class="btn btn--cream btn--lg">Забронировать место <span class="btn__arrow">→</span></a>
-      <p class="fcta__sub">Или напишите нам: [контакт организатора]</p>
+      <a href="#pricing" class="btn btn--white btn--lg">Забронировать место <span class="btn__arrow">→</span></a>
+      <p class="fcta__sub">Или напишите нам напрямую: [контакт организатора]</p>
     </div>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
-  <div class="footer__row">
-    <div class="footer__brand">
-      <img src="assets/logo.png" alt="">
-      <span class="footer__brand-txt">Светлов</span>
+  <div class="wrap">
+    <div class="footer__row">
+      <a href="https://svetlov.academy/" class="footer__brand" target="_blank" rel="noopener noreferrer">
+        <img src="assets/logo.png" alt="">
+        <span class="footer__brand-txt">Академия<br>Развития<br>Человека</span>
+      </a>
+      <div class="footer__mid">
+        <a class="footer__site" href="https://svetlov.academy/" target="_blank" rel="noopener noreferrer">svetlov.academy</a>
+        <div class="footer__copy">© 2026 Академия Развития Человека</div>
+      </div>
+      <div class="footer__contact">
+        <div class="footer__contact-lbl">Связаться</div>
+        <div class="footer__contact-val">[контакт организатора]</div>
+      </div>
+      <p class="footer__disclaimer">Материалы носят информационный характер и не являются медицинской рекомендацией. Все права защищены.</p>
     </div>
-    <div class="footer__mid">
-      <div class="footer__site">svetlov.academy</div>
-      <div class="footer__copy">© 2026 Академия Развития</div>
-    </div>
-    <div class="footer__contact">
-      Связаться<span>[контакт организатора]</span>
-    </div>
-    <p class="footer__disclaimer">Материалы носят информационный характер и не являются медицинской рекомендацией. Все права защищены.</p>
   </div>
 </footer>
 
 <script>
   const SEATS = 20;
   document.querySelectorAll('#seatsHero,#seatsFinal').forEach(el => el.textContent = SEATS);
+
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
 
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav');
