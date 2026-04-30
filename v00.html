@@ -654,7 +654,7 @@
     }
     .field--err input, .field--err textarea { border-color: var(--coral-dim); }
     .field__err { font-size: .78rem; color: var(--coral-dim); margin-top: .25rem; min-height: 1em; }
-    .field__hint { font-size: .78rem; color: var(--muted); margin-top: .3rem; line-height: 1.4; }
+    .field__hint { font-size: .78rem; color: var(--muted); line-height: 1.4; margin: -.15rem 0 .5rem; }
     .consent { display: flex; gap: .55rem; align-items: flex-start; margin: 1rem 0 1.25rem; font-size: .82rem; color: var(--muted); line-height: 1.45; }
     .consent input { margin-top: 3px; flex-shrink: 0; accent-color: var(--coral); }
     .modal__msg { padding: .85rem 1rem; border-radius: var(--r-sm); margin-bottom: 1rem; font-size: .88rem; display: none; }
@@ -1128,9 +1128,9 @@
   function fieldRow(name, label, required, placeholder, type='text', hint='') {
     return `<div class="field" data-field="${name}">
       <label for="f_${name}">${label}${required?' <span class="req">*</span>':''}</label>
+      ${hint ? `<div class="field__hint">${hint}</div>` : ''}
       <input id="f_${name}" name="${name}" type="${type}" placeholder="${placeholder}" autocomplete="off"${required?' required':''}>
       <div class="field__err"></div>
-      ${hint ? `<div class="field__hint">${hint}</div>` : ''}
     </div>`;
   }
   function textareaRow(name, label, required, placeholder) {
