@@ -648,6 +648,10 @@
     .field textarea { resize: vertical; min-height: 110px; font-family: inherit; line-height: 1.5; }
     .field input:focus, .field textarea:focus { outline: none; border-color: var(--coral); background: #fff; }
     .field input::placeholder, .field textarea::placeholder { color: var(--faint); }
+    @media (max-width: 480px) {
+      .field input { font-size: .88rem; padding: .7rem .8rem; }
+      .field input::placeholder { font-size: .8rem; letter-spacing: -.01em; }
+    }
     .field--err input, .field--err textarea { border-color: var(--coral-dim); }
     .field__err { font-size: .78rem; color: var(--coral-dim); margin-top: .25rem; min-height: 1em; }
     .consent { display: flex; gap: .55rem; align-items: flex-start; margin: 1rem 0 1.25rem; font-size: .82rem; color: var(--muted); line-height: 1.45; }
@@ -1150,7 +1154,7 @@
         ${fieldRow('lastName', 'Фамилия', false, 'Иванов')}
         ${fieldRow('firstName', 'Имя', true, 'Иван')}
         ${fieldRow('middleName', 'Отчество', false, 'Иванович')}
-        ${fieldRow('contact', 'Для обратной связи', true, '+79000000000 или @username в ТГ')}
+        ${fieldRow('contact', 'Для обратной связи', true, '+79000000000 или @username')}
         ${consentRow}
         <button type="submit" class="btn btn--primary btn--block btn--lg">Забронировать</button>
       </form>`;
@@ -1170,7 +1174,7 @@
         ${showFields ? fieldRow('lastName', 'Фамилия', false, 'Иванов') : ''}
         ${showFields ? fieldRow('firstName', 'Имя', true, 'Иван') : ''}
         ${showFields ? fieldRow('middleName', 'Отчество', false, 'Иванович') : ''}
-        ${showFields ? fieldRow('contact', 'Для обратной связи', true, '+79000000000 или @username в ТГ') : ''}
+        ${showFields ? fieldRow('contact', 'Для обратной связи', true, '+79000000000 или @username') : ''}
         ${textareaRow('question', 'Вопрос Андрею', true, 'О чём хотите спросить?')}
         ${showFields ? consentRow : ''}
         <button type="submit" class="btn btn--primary btn--block btn--lg">Отправить вопрос</button>
