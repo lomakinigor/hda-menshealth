@@ -266,11 +266,10 @@
     .story__badge { padding: 1.1rem 1.4rem; background: var(--mint); border-radius: var(--r-md); margin-top: 1rem; }
     .story__badge-name { font-family: var(--fd); font-size: 1.15rem; font-weight: 400; }
     .story__badge-role { font-size: .82rem; color: var(--muted); margin-top: .25rem; font-weight: 500; }
-    .story__note { display: flex; align-items: flex-start; gap: .65rem; padding: 1rem 1.25rem; background: var(--peach); border-radius: var(--r-md); margin-top: 1rem; font-size: .88rem; color: var(--coral-dim); line-height: 1.5; font-weight: 500; width: 100%; text-align: left; border: none; font-family: inherit; cursor: pointer; transition: all var(--tb); }
-    button.story__note:hover { background: var(--coral); color: #fff; transform: translateY(-2px); box-shadow: var(--sh-md); }
-    button.story__note:hover .story__note-ico, button.story__note:hover .story__note-arrow { color: #fff; }
-    .story__note-ico { color: var(--coral-dim); flex-shrink: 0; margin-top: 1px; transition: color var(--tb); }
-    .story__note-arrow { margin-left: auto; flex-shrink: 0; color: var(--coral-dim); transition: all var(--tb); }
+    .story__note { display: flex; align-items: flex-start; gap: .65rem; padding: 1rem 1.25rem; background: var(--coral); border-radius: var(--r-md); margin-top: 1rem; font-size: .92rem; color: #fff; line-height: 1.5; font-weight: 600; width: 100%; text-align: left; border: none; font-family: inherit; cursor: pointer; transition: all var(--tb); box-shadow: var(--sh-coral); }
+    button.story__note:hover { background: var(--coral-hi); transform: translateY(-2px); box-shadow: 0 18px 50px rgba(224,122,95,.35); }
+    .story__note-ico { color: #fff; flex-shrink: 0; margin-top: 1px; }
+    .story__note-arrow { margin-left: auto; flex-shrink: 0; color: #fff; transition: transform var(--tb); }
     button.story__note:hover .story__note-arrow { transform: translateX(3px); }
 
     .story__p { font-size: 1.05rem; color: var(--text-2); line-height: 1.8; margin-bottom: 1.4rem; font-weight: 400; }
