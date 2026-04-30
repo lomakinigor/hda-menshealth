@@ -40,6 +40,15 @@ export function sanitize(s, max = 200) {
   return String(s ?? '').replace(/[\u0000-\u001f\u007f]/g, '').trim().slice(0, max);
 }
 
+// Normalize contact for dedup: phone (digits + leading +) or @username (lowercase)
+export function normalizeContact(s) {
+  const v = String(s ?? '').trim().toLowerCase();
+  if (!v) return '';
+  if (v.startsWith('@')) return '@' + v.slice(1).replace(/[^a-z0-9_]/g, '');
+  // strip everything except digits and leading +
+  return v.replace(/[^\d+]/g, '');
+}
+
 // Telegram Login Widget hash verification
 // docs: https://core.telegram.org/widgets/login#checking-authorization
 export function verifyTgAuth(authData, botToken) {

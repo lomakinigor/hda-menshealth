@@ -1,4 +1,4 @@
-import { getRedis, notifyAdmins, readJson, sanitize, escHtml } from './_lib.js';
+import { getRedis, notifyAdmins, readJson, sanitize, escHtml, normalizeContact } from './_lib.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'method' });
@@ -14,11 +14,22 @@ export default async function handler(req, res) {
     if (!contact)   return res.status(400).json({ error: 'contact required' });
     if (!consent)   return res.status(400).json({ error: 'consent required' });
 
+    const redis = await getRedis();
+    const normContact = normalizeContact(contact);
+
+    // dedup: if this contact already booked, return ok-but-duplicate
+    if (normContact) {
+      const exists = await redis.sIsMember('bookings:contacts', normContact);
+      if (exists) {
+        return res.status(200).json({ ok: true, duplicate: true });
+      }
+      await redis.sAdd('bookings:contacts', normContact);
+    }
+
     const id = `bk_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
     const ts = new Date().toISOString();
     const record = { id, ts, lastName, firstName, middleName, contact };
 
-    const redis = await getRedis();
     await redis.lPush('bookings', JSON.stringify(record));
     await redis.lTrim('bookings', 0, 9999);
 

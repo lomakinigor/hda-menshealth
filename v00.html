@@ -1088,8 +1088,14 @@
 </div>
 
 <script>
-  const SEATS = 20;
-  document.querySelectorAll('#seatsHero,#seatsFinal').forEach(el => el.textContent = SEATS);
+  const SEATS_TOTAL = 20;
+  // initial fallback while API call is pending
+  document.querySelectorAll('#seatsHero,#seatsFinal').forEach(el => el.textContent = SEATS_TOTAL);
+  fetch('/api/seats').then(r => r.json()).then(d => {
+    if (typeof d.available === 'number') {
+      document.querySelectorAll('#seatsHero,#seatsFinal').forEach(el => el.textContent = d.available);
+    }
+  }).catch(() => {});
 
   const hdr = document.getElementById('hdr');
   window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
