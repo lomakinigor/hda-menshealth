@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Админка — Академия Развития Человека</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #f7f5f0; color: #1f2926; padding: 2rem 1rem; line-height: 1.5; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: .5rem; }
+    .sub { color: #6b7575; margin-bottom: 2rem; font-size: .92rem; }
+    .login-box { background: #fff; padding: 2.5rem 2rem; border-radius: 16px; box-shadow: 0 4px 14px rgba(0,0,0,.05); max-width: 480px; margin: 5rem auto; text-align: center; }
+    .login-box h2 { font-size: 1.3rem; margin-bottom: .5rem; }
+    .login-box p { color: #6b7575; font-size: .9rem; margin-bottom: 2rem; }
+    .tabs { display: flex; gap: .5rem; margin-bottom: 1rem; border-bottom: 1px solid #ece6d6; }
+    .tab { background: none; border: none; padding: .8rem 1.4rem; cursor: pointer; font: inherit; font-weight: 600; color: #6b7575; border-bottom: 2px solid transparent; transition: all .2s; }
+    .tab.active { color: #e07a5f; border-color: #e07a5f; }
+    .tab .count { display: inline-block; background: #ece6d6; color: #1f2926; font-size: .72rem; padding: 2px 8px; border-radius: 10px; margin-left: .35rem; font-weight: 700; }
+    .tab.active .count { background: #e07a5f; color: #fff; }
+    .toolbar { display: flex; gap: .5rem; margin-bottom: 1rem; align-items: center; flex-wrap: wrap; }
+    .btn { background: #1f2926; color: #fff; border: none; padding: .55rem 1rem; border-radius: 8px; cursor: pointer; font: inherit; font-size: .85rem; font-weight: 600; }
+    .btn:hover { background: #2d3735; }
+    .btn--ghost { background: #fff; color: #1f2926; border: 1px solid #ece6d6; }
+    .btn--ghost:hover { border-color: #1f2926; }
+    .table-wrap { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.04); overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 760px; }
+    th, td { padding: .75rem 1rem; text-align: left; border-bottom: 1px solid #f0ece0; vertical-align: top; }
+    th { background: #faecd6; font-weight: 700; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: #6b7575; position: sticky; top: 0; }
+    tr:last-child td { border-bottom: none; }
+    .ts { color: #6b7575; font-size: .78rem; white-space: nowrap; }
+    .question-cell { max-width: 380px; white-space: pre-wrap; word-break: break-word; }
+    .empty { padding: 3rem 1rem; text-align: center; color: #6b7575; }
+    .err { background: #ffe3cd; color: #b85740; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+    .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
+    .who { font-size: .85rem; color: #6b7575; }
+    .who strong { color: #1f2926; }
+    @media (max-width: 600px) {
+      th, td { padding: .55rem .65rem; font-size: .82rem; }
+      .question-cell { max-width: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap" id="content"></div>
+
+<script>
+async function init() {
+  const root = document.getElementById('content');
+  let data;
+  try {
+    const r = await fetch('/api/admin/list');
+    if (r.status === 401) { renderLogin(); return; }
+    data = await r.json();
+  } catch (e) {
+    renderError('Ошибка соединения');
+    return;
+  }
+  renderDashboard(data);
+}
+
+function renderLogin() {
+  const root = document.getElementById('content');
+  root.innerHTML = `
+    <div class="login-box">
+      <h2>Вход в админку</h2>
+      <p>Доступ только для админов. Авторизуйтесь через Telegram.</p>
+      <div id="tg-login"></div>
+      <p style="margin-top:1.5rem;font-size:.78rem;color:#a1a8a5;">
+        После входа Telegram передаст ваш профиль на сервер. Username будет проверен по списку админов.
+      </p>
+    </div>`;
+  const s = document.createElement('script');
+  s.src = 'https://telegram.org/js/telegram-widget.js?22';
+  s.async = true;
+  s.setAttribute('data-telegram-login', 'HDAcademyBot');
+  s.setAttribute('data-size', 'large');
+  s.setAttribute('data-auth-url', '/api/admin/login');
+  s.setAttribute('data-request-access', 'write');
+  document.getElementById('tg-login').appendChild(s);
+}
+
+function renderError(msg) {
+  document.getElementById('content').innerHTML = `<div class="err">${esc(msg)}</div>`;
+}
+
+function renderDashboard(data) {
+  const root = document.getElementById('content');
+  const bookings = data.bookings || [];
+  const questions = data.questions || [];
+  root.innerHTML = `
+    <div class="top">
+      <div>
+        <h1>Заявки</h1>
+        <div class="sub">Брони и вопросы — все в одном месте</div>
+      </div>
+      <a class="btn btn--ghost" href="/api/admin/logout">Выйти</a>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="bookings">Брони <span class="count">${bookings.length}</span></button>
+      <button class="tab" data-tab="questions">Вопросы <span class="count">${questions.length}</span></button>
+    </div>
+    <div class="toolbar">
+      <button class="btn btn--ghost" id="exportBtn">Экспорт CSV</button>
+      <button class="btn btn--ghost" id="refreshBtn">Обновить</button>
+    </div>
+    <div id="tab-content"></div>`;
+
+  let active = 'bookings';
+  const render = () => {
+    const list = active === 'bookings' ? bookings : questions;
+    document.getElementById('tab-content').innerHTML = renderTable(list, active);
+  };
+  render();
+
+  root.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    root.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    active = t.dataset.tab;
+    render();
+  }));
+  document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    const list = active === 'bookings' ? bookings : questions;
+    exportCsv(list, active);
+  });
+}
+
+function renderTable(list, kind) {
+  if (!list.length) return `<div class="table-wrap empty">Записей нет</div>`;
+  const head = kind === 'bookings'
+    ? `<tr><th>Когда</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Контакт</th></tr>`
+    : `<tr><th>Когда</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Контакт</th><th>Вопрос</th></tr>`;
+  const rows = list.map(r => {
+    const tsLocal = new Date(r.ts).toLocaleString('ru-RU');
+    const cells = [
+      `<td class="ts">${esc(tsLocal)}</td>`,
+      `<td>${esc(r.lastName || '—')}</td>`,
+      `<td>${esc(r.firstName)}</td>`,
+      `<td>${esc(r.middleName || '—')}</td>`,
+      `<td>${esc(r.contact)}</td>`,
+    ];
+    if (kind === 'questions') cells.push(`<td class="question-cell">${esc(r.question)}</td>`);
+    return `<tr>${cells.join('')}</tr>`;
+  }).join('');
+  return `<div class="table-wrap"><table><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function exportCsv(list, kind) {
+  const cols = kind === 'bookings'
+    ? ['ts','lastName','firstName','middleName','contact']
+    : ['ts','lastName','firstName','middleName','contact','question'];
+  const csv = [cols.join(',')]
+    .concat(list.map(r => cols.map(c => `"${String(r[c] ?? '').replace(/"/g,'""')}"`).join(',')))
+    .join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${kind}-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function esc(s) { return String(s ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+init();
+</script>
+</body>
+</html>

@@ -624,6 +624,39 @@
     /* === UTILITY === */
     .sp { height: 1.5rem; }
     .mb-15 { margin-bottom: 1.5rem; }
+
+    /* === MODAL === */
+    .modal { position: fixed; inset: 0; background: rgba(31,41,38,.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 1rem; animation: modalFade .2s ease both; }
+    .modal.open { display: flex; }
+    @keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+    .modal__card { background: var(--surface); border-radius: var(--r-lg); width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto; box-shadow: var(--sh-lg); animation: modalSlide .3s var(--tb) both; }
+    @keyframes modalSlide { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .modal__head { padding: 1.75rem 1.75rem 1.25rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .modal__head h3 { font-family: var(--fd); font-size: 1.5rem; line-height: 1.2; font-weight: 400; color: var(--text); }
+    .modal__head p { color: var(--muted); font-size: .88rem; margin-top: .35rem; }
+    .modal__close { background: none; border: none; cursor: pointer; padding: .35rem; color: var(--muted); flex-shrink: 0; line-height: 0; border-radius: 50%; transition: all var(--tf); }
+    .modal__close:hover { background: var(--peach); color: var(--coral); }
+    .modal__form { padding: 0 1.75rem 1.75rem; }
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: .82rem; font-weight: 600; color: var(--text); margin-bottom: .35rem; }
+    .field label .req { color: var(--coral); }
+    .field input, .field textarea { width: 100%; padding: .75rem .9rem; border: 1.5px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: .95rem; background: var(--bg); color: var(--text); transition: border-color var(--tf); }
+    .field textarea { resize: vertical; min-height: 110px; font-family: inherit; line-height: 1.5; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--coral); background: #fff; }
+    .field input::placeholder, .field textarea::placeholder { color: var(--faint); }
+    .field--err input, .field--err textarea { border-color: var(--coral-dim); }
+    .field__err { font-size: .78rem; color: var(--coral-dim); margin-top: .25rem; min-height: 1em; }
+    .consent { display: flex; gap: .55rem; align-items: flex-start; margin: 1rem 0 1.25rem; font-size: .82rem; color: var(--muted); line-height: 1.45; }
+    .consent input { margin-top: 3px; flex-shrink: 0; accent-color: var(--coral); }
+    .modal__msg { padding: .85rem 1rem; border-radius: var(--r-sm); margin-bottom: 1rem; font-size: .88rem; display: none; }
+    .modal__msg--ok { background: var(--mint); color: var(--forest); }
+    .modal__msg--err { background: var(--peach); color: var(--coral-dim); }
+    .modal__msg.show { display: block; }
+    .modal__success { padding: 2rem 1.75rem; text-align: center; }
+    .modal__success-ico { width: 60px; height: 60px; margin: 0 auto 1rem; background: var(--mint); color: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .modal__success h3 { font-family: var(--fd); font-size: 1.4rem; margin-bottom: .5rem; font-weight: 400; }
+    .modal__success p { color: var(--muted); font-size: .92rem; margin-bottom: 1.5rem; }
+    body.modal-open { overflow: hidden; }
   </style>
 </head>
 <body>
@@ -643,7 +676,7 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="hdr__cta">
-      <a href="#pricing" class="btn btn--primary">Забронировать</a>
+      <a href="#pricing" class="btn btn--primary" data-modal="booking">Забронировать</a>
     </div>
     <button type="button" class="hdr__burger" id="burger" aria-label="Меню" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -663,7 +696,7 @@
       <p class="hero__sub">Десять дней на лоне Урала с Заслуженным Целителем России. Для мужчин, которые готовы вернуть тело, энергию и смысл.</p>
       <div class="hero__line"></div>
       <div class="hero__cta">
-        <a href="#pricing" class="btn btn--primary btn--lg">Забронировать место <span class="btn__arrow">→</span></a>
+        <a href="#pricing" class="btn btn--primary btn--lg" data-modal="booking">Забронировать место <span class="btn__arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -896,7 +929,7 @@
         <p><strong>Не в видео. Не в тексте.</strong> Живой человек, который прошёл путь от онкологии и химиотерапии — к здоровью, силе и новому смыслу жизни.</p>
         <p>Вы сможете задать ему любой вопрос. Услышать его историю из первых уст.</p>
         <div class="live__btn-wrap">
-          <a href="#pricing" class="btn btn--primary">Встретиться с Андреем <span class="btn__arrow">→</span></a>
+          <a href="#" class="btn btn--primary" data-modal="question">Встретиться с Андреем <span class="btn__arrow">→</span></a>
         </div>
       </div>
       <div class="au d2">
@@ -956,7 +989,7 @@
           <li class="pcard__feat"><span class="pcard__feat-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Закрытый чат выпускников</li>
         </ul>
         <p class="pcard__note">Проживание оплачивается отдельно</p>
-        <a href="#" class="btn btn--primary btn--block">Забронировать место <span class="btn__arrow">→</span></a>
+        <a href="#" class="btn btn--primary btn--block" data-modal="booking">Забронировать место <span class="btn__arrow">→</span></a>
       </div>
     </div>
     <p class="pricing__footnote">Семинар рассчитан на 20 человек. После заполнения мест запись закрывается.</p>
@@ -1010,7 +1043,7 @@
     <h2 class="au">Лучшее время было вчера.<br>Второе лучшее — <em>сейчас</em>.</h2>
     <p class="fcta__txt au d1">Семинар начинается 22 мая 2026.<br>Не ждите, пока тело само решит этот вопрос за вас.</p>
     <div class="au d2">
-      <a href="#pricing" class="btn btn--white btn--lg">Забронировать место <span class="btn__arrow">→</span></a>
+      <a href="#" class="btn btn--white btn--lg" data-modal="booking">Забронировать место <span class="btn__arrow">→</span></a>
       <p class="fcta__sub">Или напишите нам напрямую: [контакт организатора]</p>
     </div>
   </div>
@@ -1036,6 +1069,11 @@
     </div>
   </div>
 </footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__card" id="modalContent"></div>
+</div>
 
 <script>
   const SEATS = 20;
@@ -1068,6 +1106,191 @@
       });
       if (!wasOpen) { item.classList.add('open'); ans.classList.add('open'); }
     });
+  });
+
+  // === MODALS (booking + question) ===
+  const modal = document.getElementById('modal');
+  const modalContent = document.getElementById('modalContent');
+
+  const ICON_CLOSE = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  const ICON_OK = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  function fieldRow(name, label, required, placeholder, type='text') {
+    return `<div class="field" data-field="${name}">
+      <label for="f_${name}">${label}${required?' <span class="req">*</span>':''}</label>
+      <input id="f_${name}" name="${name}" type="${type}" placeholder="${placeholder}" autocomplete="off"${required?' required':''}>
+      <div class="field__err"></div>
+    </div>`;
+  }
+  function textareaRow(name, label, required, placeholder) {
+    return `<div class="field" data-field="${name}">
+      <label for="f_${name}">${label}${required?' <span class="req">*</span>':''}</label>
+      <textarea id="f_${name}" name="${name}" placeholder="${placeholder}"${required?' required':''}></textarea>
+      <div class="field__err"></div>
+    </div>`;
+  }
+  const consentRow = `<label class="consent"><input type="checkbox" name="consent" required><span>Соглашаюсь на обработку персональных данных в целях обратной связи</span></label>`;
+
+  function buildBooking() {
+    return `
+      <div class="modal__head">
+        <div>
+          <h3>Бронирование места</h3>
+          <p>Заполните форму — мы свяжемся с вами для подтверждения.</p>
+        </div>
+        <button type="button" class="modal__close" aria-label="Закрыть">${ICON_CLOSE}</button>
+      </div>
+      <form class="modal__form" data-form="booking" novalidate>
+        <div class="modal__msg modal__msg--err"></div>
+        ${fieldRow('lastName', 'Фамилия', false, 'Иванов')}
+        ${fieldRow('firstName', 'Имя', true, 'Иван')}
+        ${fieldRow('middleName', 'Отчество', false, 'Иванович')}
+        ${fieldRow('contact', 'Для обратной связи', true, '+79000000000 или @username в ТГ')}
+        ${consentRow}
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Забронировать</button>
+      </form>`;
+  }
+
+  function buildQuestion(showFields) {
+    return `
+      <div class="modal__head">
+        <div>
+          <h3>Вопрос Андрею Вертнякову</h3>
+          <p>${showFields ? 'Заполните контакты — Андрей свяжется с ответом.' : 'Узнал вас по предыдущему обращению. Введите вопрос.'}</p>
+        </div>
+        <button type="button" class="modal__close" aria-label="Закрыть">${ICON_CLOSE}</button>
+      </div>
+      <form class="modal__form" data-form="question" novalidate>
+        <div class="modal__msg modal__msg--err"></div>
+        ${showFields ? fieldRow('lastName', 'Фамилия', false, 'Иванов') : ''}
+        ${showFields ? fieldRow('firstName', 'Имя', true, 'Иван') : ''}
+        ${showFields ? fieldRow('middleName', 'Отчество', false, 'Иванович') : ''}
+        ${showFields ? fieldRow('contact', 'Для обратной связи', true, '+79000000000 или @username в ТГ') : ''}
+        ${textareaRow('question', 'Вопрос Андрею', true, 'О чём хотите спросить?')}
+        ${showFields ? consentRow : ''}
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Отправить вопрос</button>
+      </form>`;
+  }
+
+  function buildSuccess(msg) {
+    return `<div class="modal__success">
+      <div class="modal__success-ico">${ICON_OK}</div>
+      <h3>Заявка принята</h3>
+      <p>${msg}</p>
+      <button type="button" class="btn btn--outline btn--lg" data-close>Закрыть</button>
+    </div>`;
+  }
+
+  function openModal(html) {
+    modalContent.innerHTML = html;
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+    const firstInput = modalContent.querySelector('input, textarea');
+    if (firstInput) setTimeout(() => firstInput.focus(), 50);
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    modalContent.innerHTML = '';
+  }
+
+  document.querySelectorAll('[data-modal]').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const kind = btn.dataset.modal;
+      if (kind === 'booking') openModal(buildBooking());
+      else if (kind === 'question') {
+        const known = localStorage.getItem('hda_registered') === 'true';
+        openModal(buildQuestion(!known));
+      }
+    });
+  });
+
+  modal.addEventListener('click', (ev) => {
+    if (ev.target === modal) closeModal();
+    if (ev.target.closest('.modal__close') || ev.target.closest('[data-close]')) closeModal();
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  function showError(form, msg) {
+    const m = form.querySelector('.modal__msg--err');
+    m.textContent = msg;
+    m.classList.add('show');
+    setTimeout(() => m.classList.remove('show'), 5000);
+  }
+
+  modal.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const form = ev.target;
+    const kind = form.dataset.form;
+    if (!kind) return;
+
+    // clear errors
+    form.querySelectorAll('.field--err').forEach(f => f.classList.remove('field--err'));
+    form.querySelectorAll('.field__err').forEach(f => f.textContent = '');
+
+    const data = {};
+    let firstErr = null;
+    form.querySelectorAll('input, textarea').forEach(el => {
+      if (el.type === 'checkbox') { data[el.name] = el.checked; return; }
+      data[el.name] = el.value.trim();
+      if (el.required && !el.value.trim()) {
+        const fld = el.closest('.field');
+        fld.classList.add('field--err');
+        fld.querySelector('.field__err').textContent = 'Обязательное поле';
+        firstErr = firstErr || el;
+      }
+    });
+    const consentBox = form.querySelector('input[name="consent"]');
+    if (consentBox && !consentBox.checked) {
+      showError(form, 'Подтвердите согласие на обработку данных');
+      consentBox.focus();
+      return;
+    }
+    if (firstErr) { firstErr.focus(); return; }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    const prevTxt = submitBtn.textContent;
+    submitBtn.textContent = 'Отправка…';
+
+    try {
+      // pull cached identity for question form when user is "known"
+      if (kind === 'question' && !data.firstName) {
+        const cached = JSON.parse(localStorage.getItem('hda_user') || '{}');
+        Object.assign(data, cached, { question: data.question, consent: true });
+      }
+      const r = await fetch(`/api/${kind}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error || 'server error');
+
+      // save identity
+      if (data.firstName && data.contact) {
+        localStorage.setItem('hda_registered', 'true');
+        localStorage.setItem('hda_user', JSON.stringify({
+          lastName: data.lastName || '',
+          firstName: data.firstName,
+          middleName: data.middleName || '',
+          contact: data.contact,
+          consent: true
+        }));
+      }
+
+      const msg = kind === 'booking'
+        ? 'Мы получили вашу заявку. Скоро свяжемся для подтверждения.'
+        : 'Вопрос передан Андрею. Ответ придёт по указанному контакту.';
+      modalContent.innerHTML = buildSuccess(msg);
+    } catch (e) {
+      showError(form, 'Не удалось отправить. Попробуйте ещё раз или напишите напрямую.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = prevTxt;
+    }
   });
 </script>
 </body>
