@@ -249,7 +249,7 @@
     }
     .pain__card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
     .pain__check { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--mint); color: var(--forest); display: flex; align-items: center; justify-content: center; }
-    .pain__txt { font-size: .96rem; color: var(--text-2); line-height: 1.5; padding-top: .5rem; font-weight: 500; }
+    .pain__txt { font-size: .96rem; color: var(--text-2); line-height: 1.5; padding-top: .5rem; font-weight: 500; flex: 1; min-width: 0; overflow-wrap: break-word; }
 
     .pain__close { margin-top: 4rem; padding: 2.5rem 2rem; text-align: center; background: var(--text); color: var(--cream); border-radius: var(--r-lg); max-width: 760px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
     .pain__close p { font-size: 1.08rem; line-height: 1.65; }
@@ -346,6 +346,7 @@
       font-family: var(--fd); font-size: 1.15rem; font-weight: 400;
       box-shadow: var(--sh-sm);
     }
+    .program__day > div:not(.program__num) { flex: 1; min-width: 0; overflow-wrap: break-word; }
     .program__lbl { font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--muted); margin-bottom: .35rem; }
     .program__title { font-size: 1rem; color: var(--text); line-height: 1.5; font-weight: 600; }
     .program__note { margin-top: 3rem; padding: 1.5rem 2rem; text-align: center; background: var(--surface); border-radius: var(--r-md); color: var(--text-2); font-size: .95rem; box-shadow: var(--sh-sm); }
