@@ -1,0 +1,60 @@
+/* ============================================================
+   HDA Design System — Tokens
+   wellness / clinical / premium-warm
+   ============================================================ */
+
+:root {
+  /* === Surfaces === */
+  --bg:           #fdf6ec;  /* основной фон страницы (cream) */
+  --surface:      #ffffff;  /* фон карточек */
+  --surface-2:    #fbf2e0;  /* подложка под heading-ы */
+
+  --cream:        #fdf6ec;
+  --cream-2:      #faecd6;
+  --peach:        #fde3cd;  /* warm pastel — для секций "о боли", тёплые блоки */
+  --peach-2:      #fdd5c5;
+  --mint:         #e3eedb;  /* calm pastel — для решений, healing */
+  --mint-2:       #cde0c2;
+  --coral-soft:   #fbcdb9;  /* soft accent fills */
+
+  /* === Text === */
+  --text:         #1f2926;  /* основной текст */
+  --text-2:       #2d3735;  /* вторичный текст */
+  --muted:        #6b7575;  /* подписи, мелочи */
+  --faint:        #a1a8a5;  /* placeholder, disabled */
+  --border:       #ece6d6;  /* линии и рамки */
+  --border-mint:  #c4d6b8;
+  --border-peach: #f5c9aa;
+
+  /* === Brand Accents === */
+  --coral:        #e07a5f;  /* PRIMARY CTA, акцент в заголовках */
+  --coral-hi:     #d36a4d;  /* hover-state coral */
+  --coral-dim:    #b85740;  /* text-on-light, errors */
+
+  --forest:       #3d5a4a;  /* dark accent, healing-green */
+  --forest-hi:    #4a6e5b;
+
+  --sun:          #f4a261;  /* warm yellow-orange, highlights, sun-vibe */
+
+  /* === Typography === */
+  --fd: 'DM Serif Display', Georgia, serif;        /* display: h1, h2, em, brand */
+  --fb: 'Plus Jakarta Sans', system-ui, sans-serif; /* body, UI, форм */
+
+  /* === Radii === */
+  --r-sm: 14px;
+  --r-md: 24px;
+  --r-lg: 36px;
+  --r-xl: 48px;
+  --r-pill: 999px;
+
+  /* === Shadows === */
+  --sh-sm: 0 4px 14px rgba(31,41,38,.05);
+  --sh-md: 0 10px 30px rgba(31,41,38,.08);
+  --sh-lg: 0 20px 50px rgba(31,41,38,.10);
+  --sh-coral: 0 14px 40px rgba(224,122,95,.25);
+
+  /* === Transitions === */
+  --tf: 200ms ease;                                 /* fast — hover-lite */
+  --tb: 300ms cubic-bezier(.4,0,.2,1);              /* smooth — UI */
+  --ts: 500ms cubic-bezier(.34,1.56,.64,1);         /* springy — reveal */
+}

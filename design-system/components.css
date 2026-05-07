@@ -1,0 +1,153 @@
+/* ============================================================
+   HDA Design System — Components
+   Подключать ПОСЛЕ tokens.css
+   ============================================================ */
+
+/* === Reset === */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--fb);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* === Typography === */
+h1, h2, h3, h4 {
+  font-family: var(--fd);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  color: var(--text);
+}
+h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+h3 { font-size: clamp(1.4rem, 2.5vw, 1.85rem); line-height: 1.15; }
+em { font-style: italic; color: var(--coral); }
+
+/* === Layout === */
+.wrap    { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.wrap--sm{ max-width: 760px;  margin: 0 auto; padding: 0 1.5rem; }
+section  { padding: 6rem 0; position: relative; }
+
+/* === Reveal animations === */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.au   { opacity:0; transform:translateY(24px); transition: opacity .7s var(--tb), transform .7s var(--tb); }
+.au.v { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
+.d4{transition-delay:.4s} .d5{transition-delay:.5s}
+
+/* === Eyebrow (pill label выше заголовка) === */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5rem 1rem; border-radius: var(--r-pill);
+  background: var(--mint); color: var(--forest);
+  font-size: .76rem; font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.eyebrow::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--coral);
+}
+.eyebrow--peach { background: var(--peach); color: var(--coral-dim); }
+.eyebrow--peach::before { background: var(--coral-dim); }
+.eyebrow--cream { background: var(--cream-2); color: var(--text); }
+.eyebrow--cream::before { background: var(--sun); }
+
+/* === Buttons === */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  padding: 1.05rem 2rem; border-radius: var(--r-pill);
+  font-family: var(--fb); font-size: .95rem; font-weight: 600;
+  cursor: pointer; border: 2px solid transparent;
+  transition: all var(--tb); text-decoration: none; white-space: nowrap;
+}
+.btn--primary { background: var(--coral); color: #fff; border-color: var(--coral); box-shadow: var(--sh-coral); }
+.btn--primary:hover { background: var(--coral-hi); border-color: var(--coral-hi); transform: translateY(-2px); }
+.btn--dark    { background: var(--text); color: var(--cream); border-color: var(--text); }
+.btn--dark:hover    { background: var(--forest); border-color: var(--forest); transform: translateY(-2px); }
+.btn--outline { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn--outline:hover { border-color: var(--text); transform: translateY(-2px); box-shadow: var(--sh-sm); }
+.btn--white   { background: #fff; color: var(--coral); border-color: #fff; }
+.btn--white:hover   { background: var(--text); color: #fff; border-color: var(--text); }
+.btn--lg      { padding: 1.2rem 2.5rem; font-size: 1rem; }
+.btn--block   { width: 100%; }
+.btn__arrow   { font-size: 1.1em; transition: transform var(--tb); }
+.btn:hover .btn__arrow { transform: translateX(4px); }
+
+/* === Card === */
+.card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+  box-shadow: var(--sh-sm);
+  transition: all var(--tb);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+
+/* === Sticky header (capsule pill) === */
+.hdr {
+  position: fixed; top: 1rem; left: 1rem; right: 1rem; z-index: 100;
+  background: rgba(253,246,236,.85);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  max-width: 1200px; margin: 0 auto;
+  transition: all var(--tb);
+}
+.hdr.scrolled { box-shadow: var(--sh-md); }
+
+/* === Modal (rounded card with backdrop blur) === */
+.modal {
+  position: fixed; inset: 0;
+  background: rgba(31,41,38,.55);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  display: none; justify-content: center; align-items: flex-start;
+  z-index: 1000; padding: 2rem 1rem; overflow-y: auto;
+}
+.modal.open { display: flex; }
+.modal__card {
+  background: var(--surface); border-radius: var(--r-lg);
+  width: 100%; max-width: 480px; box-shadow: var(--sh-lg); margin: auto;
+}
+body.modal-open { overflow: hidden; }
+
+/* === Form fields === */
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: .35rem; }
+.field label .req { color: var(--coral); }
+.field__hint { font-size: .78rem; color: var(--muted); line-height: 1.4; margin: -.15rem 0 .5rem; }
+.field input, .field textarea {
+  width: 100%; padding: .75rem .9rem;
+  border: 1.5px solid var(--border); border-radius: var(--r-sm);
+  font: inherit; font-size: .95rem;
+  background: var(--bg); color: var(--text);
+  transition: border-color var(--tf);
+}
+.field input:focus, .field textarea:focus {
+  outline: none; border-color: var(--coral); background: #fff;
+}
+.field--err input, .field--err textarea { border-color: var(--coral-dim); }
+
+.consent { display: flex; gap: .55rem; align-items: flex-start; margin: 1rem 0 1.25rem; font-size: .82rem; color: var(--muted); }
+.consent input { margin-top: 3px; flex-shrink: 0; accent-color: var(--coral); }
+
+/* === Pricing card === */
+.pcard { padding: 2.75rem 2.25rem; background: var(--surface); border-radius: var(--r-lg); position: relative; transition: all var(--tb); display: flex; flex-direction: column; box-shadow: var(--sh-sm); }
+.pcard:hover { transform: translateY(-6px); box-shadow: var(--sh-lg); }
+.pcard--top { background: var(--text); color: var(--cream); }
+.pcard__amount { font-family: var(--fd); font-size: 3rem; line-height: 1; font-weight: 400; }
+
+/* === Mobile breakpoints (mobile-first) === */
+@media (max-width: 480px) {
+  .wrap, .wrap--sm { padding: 0 1rem; }
+  section { padding: 4rem 0; }
+  .btn { white-space: normal; padding: .9rem 1.4rem; font-size: .9rem; line-height: 1.25; }
+  .btn--lg { padding: 1rem 1.5rem; font-size: .95rem; }
+  h1, h2, h3 { overflow-wrap: break-word; word-break: break-word; }
+}
